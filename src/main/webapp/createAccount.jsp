@@ -38,6 +38,14 @@
         <h3 style="color: brown; text-align: center">Create Account</h3>
         <p>${error}</p>
         <div class="mb-3">
+            <label for="username" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>UserName</b></label>
+            <input type="text" class="form-control" id="username" name = "username">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>Password</b></label>
+            <input type="password" class="form-control" id="password" name = "password">
+        </div>
+        <div class="mb-3">
             <label for="name" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>Name</b></label>
             <input type="text" class="form-control" id="name" name = "name">
         </div>
@@ -53,14 +61,6 @@
             <label for="address" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>Address</b></label>
             <input type="text" class="form-control" id="address" name = "address">
         </div>
-        <div class="mb-3">
-            <label for="username" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>UserName</b></label>
-            <input type="text" class="form-control" id="username" name = "username">
-        </div>
-        <div class="mb-3">
-            <label for="password" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>Password</b></label>
-            <input type="password" class="form-control" id="password" name = "password">
-        </div>
         <div style="display: inline-block; display:flex; justify-content:center; align-items:center;">
             <button onclick = "redirectLogin()" style="margin-right: 20px; width: 150px" type="button" class="btn btn-secondary">Create Account</button>
             <button onclick = "redirectCreateAccount()" type="button" class="btn btn-success" style="width: 150px;">Cancel</button>
@@ -69,12 +69,12 @@
 </div>
 <script>
     function redirectLogin() {
-        window.location.href = "Login.jsp";
+        window.location.href = "login.jsp";
     }
 </script>
 <script>
     function redirectCreateAccount() {
-        window.location.href = "CreateAccount.jsp";
+        window.location.href = "createAccount.jsp";
     }
 </script>
 </body>

@@ -8,8 +8,8 @@
         .KhoiDuoi{
             position: relative;
             height: auto;
-            width: 82%;
-            margin-left: 10%;
+            margin-right: 15%;
+            margin-left: 15%;
             margin-top: 80px;
         }
         #roomid{
@@ -67,20 +67,16 @@
                     </div>
                     <div class="hidden sm:ml-6 sm:block" >
                         <div class="flex space-x-4" style="margin-top: 8px;">
-                            <a href="Trangchu.jsp" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a>
+                            <a href="dashboardUser.jsp" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a>
                         </div>
                     </div>
                 </div>
 
-                <button style="width: 7%; margin-top: 3px; margin-right:1%"  onclick="redirectAdd()" type="button" class="btn btn-secondary">Add</button>
+                <button style="width: 7%; margin-top: 3px; margin-right:1%; "  onclick="redirectAdd()" type="button" class="btn btn-secondary">Add</button>
                 <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                    <button style="margin-right: 1%;" type="button" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                        <span class="absolute -inset-1.5"></span>
-                        <span class="sr-only">View notifications</span>
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"></path>
-                        </svg>
-                    </button>
+                    <div style="margin-right: 1%; width:70px; height:30px" class="relative bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                        <p style="color: #fff;">Hi, User</p>
+                    </div>
 
                     <!-- Profile dropdown -->
                     <div class="relative ml-3">
@@ -94,7 +90,7 @@
 
                         <div id="myForm" class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                             <!-- Active: "bg-gray-100", Not Active: "" -->
-                            <a href="TrangchuChangeInf.jsp" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
+                            <a href="changeInforUser.jsp" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
                             <a href="index.jsp" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
                         </div>
                     </div>
@@ -190,23 +186,7 @@
                 </div>
             </div>
 
-            <div>
-                <fieldset>
-                    <p style="font-size: 15px;" class="mt-1 text-sm leading-6 text-gray-600">Trạng thái: </p>
-                    <div class="mt-6 space-y-6">
-                        <div class="flex items-center gap-x-3">
-                            <input name="push-notifications" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                            <label style="color: #000; font-size:15px;" class="block text-sm font-medium leading-6 text-gray-900">Còn trống</label>
-                        </div>
-                        <div class="flex items-center gap-x-3">
-                            <input name="push-notifications" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                            <label style="color: #000; font-size:15px;" class="block text-sm font-medium leading-6 text-gray-900">Đã cho thuê</label>
-                        </div>
-                    </div>
-                </fieldset>
-            </div>
-
-            <div class="mt-6 flex items-center justify-end gap-x-6">
+            <div class="mt-6 flex items-center justify-end gap-x-6" style="margin-bottom: 10px;">
                 <button onclick="redirectDangbaimoi()" type="button" class="text-sm font-semibold leading-6 text-gray-900" style="color: #000; font-size:15px;">Cancel</button>
                 <button onclick="redirectTrangchuu()" type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
             </div>
@@ -215,17 +195,17 @@
     <script src="ButtonAvatar.js"></script>
     <script>
         function redirectAdd() {
-            window.location.href = "TrangchuDangbaimoi.jsp";
+            window.location.href = "addHome.jsp";
         }
     </script>
     <script>
         function redirectDangbaimoi() {
-            window.location.href = "TrangchuDangbaimoi.jsp";
+            window.location.href = "addHome.jsp";
         }
     </script>
     <script>
         function redirectTrangchuu() {
-            window.location.href = "Trangchu.jsp";
+            window.location.href = "dashboardUser.jsp";
         }
     </script>
 </body>

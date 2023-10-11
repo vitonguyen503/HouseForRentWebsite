@@ -24,7 +24,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             background-color: rgb(217, 227, 237);
             width: 45%;
-            height: 50%;
+            height: 65%;
         }
         .container{
             display: flex;
@@ -47,6 +47,10 @@
             <input type="password" class="form-control" id="password" name = "password">
         </div>
         <div class="mb-3">
+            <label for="newpassword" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>New Password</b></label>
+            <input type="password" class="form-control" id="newpassword" name = "newpassword">
+        </div>
+        <div class="mb-3">
             <label for="confirmpassword" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>Confirm Password</b></label>
             <input type="password" class="form-control" id="confirmpassword">
         </div>
@@ -59,7 +63,7 @@
 </div>
 <script>
     function redirectResetPass() {
-        window.location.href = "resetAccount.jsp";
+        window.location.href = "forgotPassword.jsp";
     }
 </script>
 <script>

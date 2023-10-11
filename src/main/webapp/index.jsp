@@ -84,13 +84,13 @@
     <script>
         function redirectLoginPage() {
             // Sử dụng JavaScript để điều hướng sang trang khác
-            window.location.href = "Login.jsp";
+            window.location.href = "login.jsp";
         }
     </script>
     <script>
         function redirectTrangchuGuest() {
             // Sử dụng JavaScript để điều hướng sang trang khác
-            window.location.href = "TrangchuGuest.jsp";
+            window.location.href = "dashboardGuest.jsp";
         }
     </script>
 </body>

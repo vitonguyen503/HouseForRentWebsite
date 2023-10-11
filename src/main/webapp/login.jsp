@@ -46,10 +46,8 @@
                 <label for="password" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>Password</b></label>
                 <input type="password" class="form-control" id="password" name = "password">
             </div>
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-label" id="checkform">
-                <label class="form-check-label" for="checkform">Check me out</label>
-                <a style="color:brown; margin-left: 40%" href="ResetAccount.jsp">Reset Password</a>
+            <div class="mb-3 form-check" style="margin-left: 48%;">
+                <a style="color:brown; margin-left: 40%" href="forgotPassword.jsp">Forgot Password</a>
             </div>
             <div style="display: flex; justify-content:center; align-items:center">
                 <button onclick="redirectTrangchu()" style="margin-right: 30px; width: 100px" type="button" class="btn btn-secondary">LogIn</button>
@@ -59,12 +57,12 @@
     </div>
     <script>
         function redirectTrangchu() {
-            window.location.href = "Trangchu.jsp";
+            window.location.href = "dashboardUser.jsp";
         }
     </script>
     <script>
         function redirectCreateAccount() {
-            window.location.href = "CreateAccount.jsp";
+            window.location.href = "createAccount.jsp";
         }
     </script>
 </body>
