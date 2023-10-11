@@ -130,7 +130,7 @@
     <script src="ButtonAvatar.js"></script>
     <script>
         function redirectLogIn() {
-            window.location.href = "Login.jsp";
+            window.location.href = "login.jsp";
         }
     </script>
 </body>

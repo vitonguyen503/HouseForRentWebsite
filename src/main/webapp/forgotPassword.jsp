@@ -59,12 +59,12 @@
 </div>
 <script>
     function redirectResetPass() {
-        window.location.href = "ResetAccount.jsp";
+        window.location.href = "resetAccount.jsp";
     }
 </script>
 <script>
     function redirectLogin() {
-        window.location.href = "Login.jsp";
+        window.location.href = "login.jsp";
     }
 </script>
 </body>

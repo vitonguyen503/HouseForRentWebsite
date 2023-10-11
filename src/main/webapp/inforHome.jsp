@@ -205,12 +205,12 @@
     <script src="ButtonAvatar.js"></script>
     <script>
         function redirectLogIn() {
-            window.location.href = "Login.jsp";
+            window.location.href = "login.jsp";
         }
     </script>
     <script>
         function redirectFormReverse() {
-            window.location.href = "FormReverse.jsp";
+            window.location.href = "formReverse.jsp";
         }
     </script>
 </body>
