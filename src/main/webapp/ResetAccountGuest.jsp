@@ -8,11 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>ResetPassword</title>
+    <title>Reset Password</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
         body{
-
             display: flex;
             justify-content: center;
             align-items: center;
@@ -51,7 +50,7 @@
             <input type="password" class="form-control" id="confirmpassword">
         </div>
         <div style="display: inline-block; display:flex; justify-content:center; align-items:center;">
-            <button onclick="redirectLogin()" style="margin-right: 20px; width: 100px" type="button" class="btn btn-secondary">OK</button>
+            <button onclick="redirectLoginGuest()" style="margin-right: 20px; width: 100px" type="button" class="btn btn-secondary">OK</button>
             <button onclick="redirectResetPass()" type="button" class="btn btn-success" style="width: 100px;">Cancel</button>
         </div>
 
@@ -59,12 +58,12 @@
 </div>
 <script>
     function redirectResetPass() {
-        window.location.href = "ResetAccount.jsp";
+        window.location.href = "ResetAccountGuest.jsp";
     }
 </script>
 <script>
-    function redirectLogin() {
-        window.location.href = "Login.jsp";
+    function redirectLoginGuest() {
+        window.location.href = "LoginGuest.jsp";
     }
 </script>
 </body>

@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Login for Nguoi dang bai</title>
+    <title>Login user</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
         body{
@@ -23,21 +23,23 @@
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             background-color: rgb(217, 227, 237);
-            width: 55%;
-            height: 53vh;
+            width: 45%;
+            height: 55vh;
         }
         .container{
-            margin-left: 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <form class="form">
-            <h3 style="color: coral; text-align: center">Login Page</h3>
+            <h3 style="color: brown; text-align: center">Login Page</h3>
             <p>${error}</p>
             <div class="mb-3">
-                <label for="username" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>UserName</b></label>
+                <label for="username" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>Username</b></label>
                 <input type="text" class="form-control" id="username" name = "username">
             </div>
             <div class="mb-3">
@@ -47,11 +49,11 @@
             <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-label" id="checkform">
                 <label class="form-check-label" for="checkform">Check me out</label>
-                <a style="color:brown; margin-left: 40%" href="ResetAccount.jsp">ResetPassword</a>
+                <a style="color:brown; margin-left: 40%" href="ResetAccount.jsp">Reset Password</a>
             </div>
-            <div>
-                <button onclick = "redirectTrangchu()" style="margin-right: 30px; margin-left: 92px; width: 100px" type="button" class="btn btn-secondary">LogIn</button>
-                <button onclick = "redirectCreateAccount()" type="button" class="btn btn-success" style="width: 100px;">SignUp</button>
+            <div style="display: flex; justify-content:center; align-items:center">
+                <button onclick="redirectTrangchu()" style="margin-right: 30px; width: 100px" type="button" class="btn btn-secondary">LogIn</button>
+                <button onclick="redirectCreateAccount()" type="button" class="btn btn-success" style="width: 100px;">SignUp</button>
             </div>
         </form>
     </div>
