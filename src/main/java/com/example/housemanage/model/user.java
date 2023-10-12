@@ -1,4 +1,4 @@
-package model;
+package com.example.housemanage.model;
 
 public class user {
     int ID;

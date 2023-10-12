@@ -42,6 +42,28 @@
             height: 200px;
             padding-top: 3px;
         }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Màu mờ */
+            display: none;
+            z-index: 1;
+        }
+        .form-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none;
+            z-index: 2;
+        }
     </style>
 </head>
 <body>
@@ -185,6 +207,50 @@
                 </div>
             </div>
         </div>
+
+        <p><a href="#" id="showFormLink">Customer Information: ${sum}</a></p>
+        <div class="overlay" id="overlay"></div>
+        <div class="form-container" id="formContainer">
+            <body>
+            <form style="padding:20px; width:100%;">
+                <b><h1 style="text-align: center; padding:10px;">INFORMATION GUEST</h1></b>
+                <div class="container-table" style="max-height: 300px; overflow:auto;">
+                    <table class="table-danger table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th style="width: 40px; text-align:center; height:50px">STT</th>
+                                <th style="width: 150px; text-align:center">Sender Name</th>
+                                <th style="width: 150px; text-align:center">Sender Number</th>
+                                <th style="text-align:center">Sender Note</th>
+                            </tr>
+                        </thead>
+                        <tbody >
+                            <tr>
+                                <th style="text-align: center;">1</th>
+                                <td style="text-align: center;">Nguyen The Vu</td>
+                                <td style="text-align: center;">0966344956</td>
+                                <td style="padding: 10px;">Tôi muốn xem chi tiết hơn về nội thất trong phòng. Bạn hãy check tin nhắn của tôi trên Zalo.</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+            </body>
+        </div>
+        <script>
+            document.getElementById('showFormLink').addEventListener('click', function (e) {
+                e.preventDefault();
+                document.getElementById('overlay').style.display = 'block';
+                document.getElementById('formContainer').style.display = 'block';
+            });
+
+            document.getElementById('overlay').addEventListener('click', function () {
+                document.getElementById('overlay').style.display = 'none';
+                document.getElementById('formContainer').style.display = 'none';
+            });
+
+        </script>
 
         <div class="mt-6 flex items-center justify-end gap-x-6" style="margin-bottom: 10px;">
             <button onclick="redirectEditbaidang()" type="button" class="text-sm font-semibold leading-6 text-gray-900" style="color: #000; font-size:15px;">Cancel</button>
