@@ -13,7 +13,7 @@
             padding-bottom: 10px;
             margin-top: 20px;
             margin-bottom: 10px;
-            margin-left: 20%;
+            margin-left: 10%;
             display: inline-block;
         }
 
@@ -32,6 +32,39 @@
             margin-bottom: 10px;
             margin-left: 3%;
             display: inline-block;
+        }
+        .inputsearch{
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            margin-left: 3%;
+            display: inline-block;
+            padding-left:6px;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Màu mờ */
+            display: none;
+            z-index: 1;
+        }
+        .form-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            /*right: 20%;*/
+            width: 40%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none;
+            z-index: 2;
         }
     </style>
 </head>
@@ -65,7 +98,7 @@
                     </div>
                 </div>
 
-                <button style="width: 7%; margin-top: 3px;" onclick="redirectLogin()" type="button" class="btn btn-secondary">Sign in</button>
+                <button style="width: 13%; margin-top: 3px;" onclick="redirectLogin()" type="button" class="btn btn-secondary">+ Update new post</button>
             </div>
         </div>
     </nav>
@@ -101,13 +134,14 @@
             <option> >10tr </option>
         </select>
 
+        <input class="inputsearch" type="text" style="width: 20%;" placeholder="Search">
         <button style="display: inline-block; margin-left:3%; margin-top:-5px" type="button" class="btn btn-secondary">Search</button>
     </header>
 
     <!-- description -->
     <div style="margin-top:150px; margin-left: 10%; margin-right: 10%;">
         <div class="px-4 sm:px-0">
-            <p class="text-base font-semibold leading-7 text-gray-900" style="font-size: 20px; text-align:center">Information home for rent</p>
+            <p class="text-base font-semibold leading-7 text-gray-900" style="font-size: 20px; text-align:center">Information room for rent</p>
         </div>
 
         <!-- Slide img -->
@@ -171,9 +205,73 @@
                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">0966344956</dd>
                 </div>
             </dl>
+
             <div style="display: flex; justify-content:center; margin-bottom:15px;">
-                <button onclick="redirectFormReverse()" type="button" class="btn btn-warning">Reverse</button>
+                <button id="showFormLink" type="button" class="btn btn-warning">Contact</button>
             </div>
+            <div class="overlay" id="overlay"></div>
+            <div class="form-container" id="formContainer">
+                <form style="background-color: rgb(243, 239, 248); padding:20px; max-height:75vh; width:100%; overflow-y: auto;">
+                    <div class="space-y-12">
+                        <div class="border-b border-gray-900/10 pb-12">
+                            <h2 class="text-base font-semibold leading-7 text-gray-900">Notion</h2>
+                            <p class="mt-1 text-sm leading-6 text-gray-600">This information will be sended to the poster.</p>
+
+                            <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                                <div class="sm:col-span-full">
+                                    <label for="roomid" class="block text-sm font-medium leading-6 text-gray-900">RoomID</label>
+                                    <div class="mt-2">
+                                        <div  class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                                            <input style="height: 30px; padding-left: 7px;" type="text" name="roomid" id="roomid" autocomplete="roomid" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="sm:col-span-full">
+                                    <label for="sendername" class="block text-sm font-medium leading-6 text-gray-900">Sender Name</label>
+                                    <div class="mt-2">
+                                        <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                                            <input style="height: 30px; padding-left: 7px;" type="text" name="sendername" id="sendername" autocomplete="sendername" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="sm:col-span-full">
+                                    <label for="sendernumber" class="block text-sm font-medium leading-6 text-gray-900">Sender Number</label>
+                                    <div class="mt-2">
+                                        <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                                            <input style="height: 30px; padding-left: 7px;" type="number" name="sendernumber" id="sendernumber" autocomplete="sendernumber" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-span-full">
+                                    <label for="sendernote" class="block text-sm font-medium leading-6 text-gray-900">Sender Note</label>
+                                    <div class="mt-2">
+                                        <textarea style="padding-left: 7px;" id="sendernote" name="sendernote" rows="4" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                                    </div>
+                                    <p class="mt-3 text-sm leading-6 text-gray-600">Write a few sentences for the poster.</p>
+                                </div>
+                            </div>
+                            <button onclick="redirectinforHome()" style="margin-top: 20px; margin-left:75%" type="button" class="btn btn-secondary">Send</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <script>
+                document.getElementById('showFormLink').addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.getElementById('overlay').style.display = 'block';
+                    document.getElementById('formContainer').style.display = 'block';
+                });
+
+                document.getElementById('overlay').addEventListener('click', function () {
+                    document.getElementById('overlay').style.display = 'none';
+                    document.getElementById('formContainer').style.display = 'none';
+                });
+
+            </script>
         </div>
     </div>
     <script src="ButtonAvatar.js"></script>

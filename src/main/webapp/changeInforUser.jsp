@@ -94,7 +94,7 @@
             <div class="space-y-12">
                 <div class="border-b border-gray-900/10 pb-12">
                     <div class="col-span-full">
-                        <b><p style="color: #000; font-size:30px; text-align:center; padding-top: 10px; padding-bottom:10px;">Change Information</p></b>
+                        <b><p style="color: #000; font-size:30px; text-align:center; padding-top: 10px; padding-bottom:10px;">Your Information</p></b>
                         <label style="color: #000; font-size:15px;" class="block text-sm font-medium leading-6 text-gray-900">Photo</label>
                         <div style="background-color: rgb(253, 244, 232);" class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                             <div class="text-center">

@@ -74,13 +74,11 @@
             </div>
         </div>
     </nav>
-
-    <div style="margin-top:5%; margin-left:8%;">
-        <div>
-            <h3 style="color: #000; text-align:center; padding:15px; display:inline-block">Các bài đã đăng gần đây</h3>
-        </div>
-
-        <p style="color: #000;">Tổng số bài đăng: ${count}</p>
+    <div>
+        <b><h3 style="color: #000000; text-align:center; padding:15px; margin-top: 80px;">All your posts</h3></b>
+    </div>
+    <div style="margin-top:15px; margin-left:10%;">
+        <p style="color: #000;">Total posts: ${count}</p>
         <p style="color: #000; padding-bottom:10px;">${error}</p>
     </div>
 
@@ -102,7 +100,7 @@
                             <p style="color: brown; display:inline-block;"><b>Prices</b></p>
                             <p style="display: inline-block; margin-left: 4%;">Area</p>
                             <p style="display: inline-block; margin-left: 4%;">Local</p>
-                            <p style="display: inline-block; margin-left: 30%;">Ngay dang bai</p>
+                            <p style="display: inline-block; margin-left: 30%;">Date</p>
                         </div>
                         <p style="color: rgb(122, 121, 120); font-size: 12px;">Decription</p>
                         <img style="display: inline-block;" src="" alt=""> <p style="display: inline-block;">Name</p>

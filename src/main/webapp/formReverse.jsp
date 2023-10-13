@@ -56,7 +56,7 @@
                     <p class="mt-3 text-sm leading-6 text-gray-600">Write a few sentences for the poster.</p>
                 </div>
             </div>
-            <button onclick="redirectinforHome()" style="margin-top: 20px; margin-left:75%" type="button" class="btn btn-secondary">Send</button>
+            <button onclick="redirectinforHome()" style="margin-top: 20px; margin-left:75NH%" type="button" class="btn btn-secondary">Send</button>
         </div>
 
     </div>

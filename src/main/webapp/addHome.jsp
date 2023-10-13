@@ -103,7 +103,7 @@
         <form>
             <div class="space-y-12">
                 <div class="border-b border-gray-900/10 pb-12">
-                    <b><p style="color: #000; font-size:30px; text-align:center; padding-top: 20px; padding-bottom:10px;" class="text-base font-semibold leading-7 text-gray-900">Thêm phòng trọ mới</p></b>
+                    <b><p style="color: #000; font-size:30px; text-align:center; padding-top: 20px; padding-bottom:10px;" class="text-base font-semibold leading-7 text-gray-900">Add new room</p></b>
 
                     <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                         <div class="sm:col-span-4">
