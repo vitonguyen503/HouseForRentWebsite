@@ -29,13 +29,13 @@
                     <div class="hidden sm:ml-6 sm:block" >
                         <div class="flex space-x-4" style="margin-top: 8px;">
                             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                            <a href="dashboardGuest.jsp" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a>
+                            <a href="index.jsp" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a>
                             <a href="aboutWebsite.jsp" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About</a>
                         </div>
                     </div>
                 </div>
 
-                <button style="width: 7%; margin-top: 3px;" onclick="redirectLogin()" type="button" class="btn btn-secondary">Sign in</button>
+                <button style="width: 13%; margin-top: 3px;" onclick="redirectLogin()" type="button" class="btn btn-secondary">Add new post</button>
             </div>
         </div>
     </nav>
@@ -50,24 +50,24 @@
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto max-w-2xl lg:mx-0">
                 <h2 class="text-4xl font-bold tracking-tight text-white sm:text-6xl" style="text-align: center;">Work with us</h2>
-                <p class="mt-6 text-lg leading-8 text-gray-300" style="text-align: center;">Tìm trọ thật đơn giản, hãy truy cập vào trang web của chúng tôi. Nếu bạn đang có phòng trọ cho thuê, vậy thì đăng bài lên ngay thôi </p>
+                <p class="mt-6 text-lg leading-8 text-gray-300" style="text-align: center;">Discover a world of convenience! Our platform simplifies your search for the perfect rental room, saving you time and effort. Our platform provides a hassle-free way to post your rental listings and connect with potential tenants. </p>
             </div>
             <div class="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
                 <dl class="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4" style="text-align: center;">
                     <div class="flex flex-col-reverse">
-                        <dt class="text-base leading-7 text-gray-300">Dễ sử dụng</dt>
+                        <dt class="text-base leading-7 text-gray-300">Simple procedure</dt>
                         <dd class="text-2xl font-bold leading-9 tracking-tight text-white">100/100</dd>
                     </div>
                     <div class="flex flex-col-reverse">
-                        <dt class="text-base leading-7 text-gray-300">Thuận tiện</dt>
+                        <dt class="text-base leading-7 text-gray-300">User-friendly</dt>
                         <dd class="text-2xl font-bold leading-9 tracking-tight text-white">90/100</dd>
                     </div>
                     <div class="flex flex-col-reverse">
-                        <dt class="text-base leading-7 text-gray-300">Đáng tin cậy</dt>
+                        <dt class="text-base leading-7 text-gray-300">Security</dt>
                         <dd class="text-2xl font-bold leading-9 tracking-tight text-white">90/100</dd>
                     </div>
                     <div class="flex flex-col-reverse">
-                        <dt class="text-base leading-7 text-gray-300">Đánh giá</dt>
+                        <dt class="text-base leading-7 text-gray-300">User rating</dt>
                         <dd class="text-2xl font-bold leading-9 tracking-tight text-white">4.8/5</dd>
                     </div>
                 </dl>

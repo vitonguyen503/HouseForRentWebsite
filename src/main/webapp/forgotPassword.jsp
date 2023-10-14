@@ -25,7 +25,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             background-color: rgb(217, 227, 237);
             width: 45%;
-            height: 65%;
+            height: 60%;
         }
         .container{
             display: flex;
@@ -57,7 +57,7 @@
                 </div>
                 <div class="hidden sm:ml-6 sm:block" >
                     <div class="flex space-x-4" style="margin-top: 8px;">
-                        <a href="dashboardGuest.jsp" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a>
+                        <a href="dashboardUser.jsp" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a>
                         <a href="aboutWebsite.jsp" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About</a>
                     </div>
                 </div>
@@ -68,16 +68,13 @@
 </nav>
 
 <div class="container">
-    <form class="form">
+    <form class="form" method="post" action="${pageContext.request.contextPath}/resetpass">
         <h3 style="color: brown; text-align: center">Reset Password</h3>
-        <p>${error}</p>
+        <p style="color: brown; text-align: center">${error}</p>
+        <p style="color: brown; text-align: center">${message}</p>
         <div class="mb-3">
             <label for="username" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>Username</b></label>
             <input type="text" class="form-control" id="username" name = "username">
-        </div>
-        <div class="mb-3">
-            <label for="email" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>Email</b></label>
-            <input type="email" class="form-control" id="email" name = "email">
         </div>
         <div class="mb-3">
             <label for="newpassword" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>New Password</b></label>
@@ -85,10 +82,10 @@
         </div>
         <div class="mb-3">
             <label for="confirmpassword" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>Confirm Password</b></label>
-            <input type="password" class="form-control" id="confirmpassword">
+            <input type="password" class="form-control" id="confirmpassword" name="confirmpassword">
         </div>
         <div style="display: inline-block; display:flex; justify-content:center; align-items:center;">
-            <button onclick="redirectLogin()" style="margin-right: 20px; width: 100px" type="button" class="btn btn-secondary">OK</button>
+            <button style="margin-right: 20px; width: 100px" type="submit" class="btn btn-secondary">OK</button>
             <button onclick="redirectResetPass()" type="button" class="btn btn-success" style="width: 100px;">Cancel</button>
         </div>
 
@@ -97,11 +94,6 @@
 <script>
     function redirectResetPass() {
         window.location.href = "forgotPassword.jsp";
-    }
-</script>
-<script>
-    function redirectLogin() {
-        window.location.href = "login.jsp";
     }
 </script>
 </body>

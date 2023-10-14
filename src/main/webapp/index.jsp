@@ -66,12 +66,12 @@
                 </div>
                 <div class="hidden sm:ml-6 sm:block" >
                     <div class="flex space-x-4" style="margin-top: 8px;">
-                        <a href="dashboardGuest.jsp" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a>
+                        <a href="index.jsp" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a>
                         <a href="aboutWebsite.jsp" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About</a>
                     </div>
                 </div>
             </div>
-            <button style="width: 13%; margin-top: 3px;" onclick="redirectLogin()" type="button" class="btn btn-secondary">+ Update new post</button>
+            <button style="width: 13%; margin-top: 3px;" onclick="redirectLogin()" type="button" class="btn btn-secondary">Add new post</button>
         </div>
     </div>
 </nav>
@@ -181,7 +181,7 @@
 <script src="ButtonAvatar.js"></script>
 <script>
     function redirectLogin() {
-        window.location.href = "login.jsp";
+        window.location.href = "http://localhost:8080/HouseManage/login";
     }
 </script>
 </body>

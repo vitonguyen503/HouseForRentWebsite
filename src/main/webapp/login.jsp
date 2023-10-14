@@ -25,7 +25,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             background-color: rgb(217, 227, 237);
             width: 45%;
-            height: 55vh;
+            height: 60vh;
         }
         .container{
             display: flex;
@@ -57,46 +57,47 @@
                 </div>
                 <div class="hidden sm:ml-6 sm:block" >
                     <div class="flex space-x-4" style="margin-top: 8px;">
-                        <a href="dashboardGuest.jsp" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a>
+                        <a href="dashboardUser.jsp" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a>
                         <a href="aboutWebsite.jsp" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About</a>
                     </div>
                 </div>
             </div>
-            <button style="width: 13%; margin-top: 3px;" onclick="redirectLogin()" type="button" class="btn btn-secondary">+ Update new post</button>
+            <button style="width: 13%; margin-top: 3px;" onclick="redirectLogin()" type="button" class="btn btn-secondary">Add new post</button>
         </div>
     </div>
 </nav>
 
     <div class="container">
-        <form class="form">
+        <form class="form" method="post" action="${pageContext.request.contextPath}/login">
             <h3 style="color: brown; text-align: center">Login Page</h3>
-            <p>${error}</p>
+            <%-- Display error message if exists --%>
+            <% if (request.getAttribute("error") != null) { %>
+                <div class="error-message" style="text-align: center; color: brown; padding: 2px;">
+                    <%= request.getAttribute("error") %>
+                </div>
+            <%} %>
             <div class="mb-3">
                 <label for="username" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>Username</b></label>
-                <input type="text" class="form-control" id="username" name = "username">
+                <input type="text" class="form-control" id="username" name = "username" required>
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>Password</b></label>
-                <input type="password" class="form-control" id="password" name = "password">
+                <input type="password" class="form-control" id="password" name = "password" required>
             </div>
             <div class="mb-3 form-check" style="margin-left: 48%;">
                 <a style="color:brown; margin-left: 40%" href="forgotPassword.jsp">Forgot Password</a>
             </div>
             <div style="display: flex; justify-content:center; align-items:center">
-                <button onclick="redirectTrangchu()" style="margin-right: 30px; width: 100px" type="button" class="btn btn-secondary">LogIn</button>
-                <button onclick="redirectCreateAccount()" type="button" class="btn btn-success" style="width: 100px;">SignUp</button>
+                <input style="margin-right: 30px; width: 100px" type="submit" class="btn btn-secondary" value="Log In">
+                <button onclick="redirectCreateAccount()" type="button" class="btn btn-success" style="width: 100px;">Sign Up</button>
             </div>
         </form>
     </div>
-    <script>
-        function redirectTrangchu() {
-            window.location.href = "dashboardUser.jsp";
-        }
-    </script>
-    <script>
-        function redirectCreateAccount() {
-            window.location.href = "createAccount.jsp";
-        }
-    </script>
+
+<script>
+    function redirectCreateAccount() {
+        window.location.href = "createAccount.jsp";
+    }
+</script>
 </body>
 </html>
