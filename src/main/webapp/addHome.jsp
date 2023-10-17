@@ -12,7 +12,7 @@
             margin-left: 20%;
             margin-top: 80px;
         }
-        #roomid{
+        #userID{
             padding-left: 20px;
             height:30px;
 
@@ -103,30 +103,31 @@
     </nav>
 
     <div class="KhoiDuoi">
-        <form style="background-color: rgb(243, 239, 248);">
+        <form style="background-color: rgb(243, 239, 248);" method="post" action="${pageContext.request.contextPath}/addnewroom">
             <div class="space-y-12">
                 <div class="border-b border-gray-900/10 pb-12">
                     <b><p style="color: #000; font-size:30px; text-align:center; padding-top: 20px; padding-bottom:10px;" class="text-base font-semibold leading-7 text-gray-900">Add new room</p></b>
-
+                    <p style="color: brown; text-align: center;">${error}</p>
                     <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                         <div class="sm:col-span-4">
-                            <label style="color: #000; font-size:15px;" for="roomid" class="block text-sm font-medium leading-6 text-gray-900">RoomID</label>
+                            <label style="color: #000; font-size:15px;"  class="block text-sm font-medium leading-6 text-gray-900">ID User</label>
                             <div class="mt-2">
-                                <input type="text" name="roomid" id="roomid" autocomplete="roomid" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+<%--                                <p>${userID}</p>--%>
+                                <input value="${userID}" type="text" name="userID" id="userID" autocomplete="userID" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                             </div>
                         </div>
 
                         <div class="col-span-full">
                             <label style="color: #000; font-size:15px;" for="title" class="block text-sm font-medium leading-6 text-gray-900">Title</label>
                             <div class="mt-2">
-                                <textarea  id="title" name="title" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                                <textarea required  id="title" name="title" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
                             </div>
                         </div>
 
                         <div class="col-span-full">
                             <label style="color: #000; font-size:15px;" for="streetaddress" class="block text-sm font-medium leading-6 text-gray-900">Street Address</label>
                             <div class="mt-2">
-                                <input type="text" name="streetaddress" id="streetaddress" autocomplete="streetaddress" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                <input required type="text" name="streetaddress" id="streetaddress" autocomplete="streetaddress" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                             </div>
                         </div>
 
@@ -135,12 +136,16 @@
                             <div class="mt-2">
                                 <select id="city" name="city" autocomplete="city" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
                                     <option selected>Local</option>
-                                    <option value="HaNoi">Hà Nội</option>
-                                    <option value="TP.HCM">TP.Hồ Chí Minh</option>
-                                    <option value="DaNang">Đà Nẵng</option>
-                                    <option value="CanTho">Cần Thơ</option>
-                                    <option value="HaiPhong">Hải Phòng</option>
-                                    <option value="KhanhHoa">Khánh Hòa</option>
+                                    <option value="NewYork">NewYork</option>
+                                    <option value="Los Angeles">Los Angeles</option>
+                                    <option value="Chicago">Chicago</option>
+                                    <option value="San Francisco">San Francisco</option>
+                                    <option value="Miami">Miami</option>
+                                    <option value="Austin">Austin</option>
+                                    <option value="Boston">Boston</option>
+                                    <option value="Seattle">Seattle</option>
+                                    <option value="New Orlean">New Orlean</option>
+                                    <option value="Denver">Denver</option>
                                 </select>
                             </div>
                         </div>
@@ -148,21 +153,21 @@
                         <div class="sm:col-span-2 sm:col-start-1">
                             <label style="color: #000; font-size:15px;" for="area" class="block text-sm font-medium leading-6 text-gray-900">Area</label>
                             <div class="mt-2">
-                                <input type="number" step="0.01" inputmode="decimal" name="area" id="area" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                <input required type="number" step="0.01" inputmode="decimal" name="area" id="area" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                             </div>
                         </div>
 
                         <div class="sm:col-span-2">
                             <label style="color: #000; font-size:15px;" for="price" class="block text-sm font-medium leading-6 text-gray-900">Price</label>
                             <div class="mt-2">
-                                <input type="number" name="price" id="price" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                <input required type="number" name="price" id="price" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                             </div>
                         </div>
 
                         <div class="col-span-full">
                             <label style="color: #000; font-size:15px;" for="description" class="block text-sm font-medium leading-6 text-gray-900">Description</label>
                             <div class="mt-2">
-                                <textarea id="description" name="description" rows="4" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                                <textarea required id="description" name="description" rows="4" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
                             </div>
                             <p class="mt-3 text-sm leading-6 text-gray-600">Write a few sentences about phong tro.</p>
                         </div>
@@ -190,15 +195,15 @@
             </div>
 
             <div class="mt-6 flex items-center justify-end gap-x-6" style="margin-bottom: 10px;">
-                <button onclick="redirectAdd()" type="button" class="text-sm font-semibold leading-6 text-gray-900" style="color: #000; font-size:15px;">Cancel</button>
-                <button onclick="redirectTrangchuu()" type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+                <button onclick="redirectDashboardUser()" type="button" class="text-sm font-semibold leading-6 text-gray-900" style="color: #000; font-size:15px;">Cancel</button>
+                <input type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" value="Save">
             </div>
         </form>
     </div>
     <script src="ButtonAvatar.js"></script>
     <script>
-        function redirectAdd() {
-            window.location.href = "addHome.jsp";
+        function redirectDashboardUser() {
+            window.location.href = "dashboardUser.jsp";
         }
     </script>
     <script>

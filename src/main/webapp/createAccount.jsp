@@ -68,12 +68,11 @@
                 </div>
                 <div class="hidden sm:ml-6 sm:block" >
                     <div class="flex space-x-4" style="margin-top: 8px;">
-                        <a href="dashboardUser.jsp" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a>
+                        <a href="${pageContext.request.contextPath}/" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a>
                         <a href="aboutWebsite.jsp" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About</a>
                     </div>
                 </div>
             </div>
-            <button style="width: 13%; margin-top: 3px;" onclick="redirectLogin()" type="button" class="btn btn-secondary">+ Update new post</button>
         </div>
     </div>
 </nav>
@@ -87,31 +86,31 @@
         <div style="color: brown; text-align: center;" class="success-message">${message}</div>
         <div class="mb-3">
             <label for="username" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>UserName</b></label>
-            <input type="text" class="form-control" id="username" name = "username">
+            <input type="text" class="form-control" id="username" name = "username" required>
         </div>
         <div class="mb-3">
             <label for="password" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>Password</b></label>
-            <input type="password" class="form-control" id="password" name = "password">
+            <input type="password" class="form-control" id="password" name = "password" required>
         </div>
         <div class="mb-3">
             <label for="confirmpassword" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>Confirm Password</b></label>
-            <input type="password" class="form-control" id="confirmpassword" name = "confirmpassword">
+            <input type="password" class="form-control" id="confirmpassword" name="confirmpassword" required>
         </div>
         <div class="mb-3">
             <label for="name" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>Name</b></label>
-            <input type="text" class="form-control" id="name" name = "name">
+            <input type="text" class="form-control" id="name" name = "name" required>
         </div>
         <div class="mb-3">
             <label for="email" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>Email</b></label>
-            <input type="email" class="form-control" id="email" name = "email">
+            <input type="email" class="form-control" id="email" name="email" required>
         </div>
         <div class="mb-3">
             <label for="number" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>Number</b></label>
-            <input type="number" class="form-control" id="number" name = "number">
+            <input type="number" class="form-control" id="number" name = "number" required>
         </div>
         <div class="mb-3">
             <label for="address" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>Address</b></label>
-            <input type="text" class="form-control" id="address" name = "address">
+            <input type="text" class="form-control" id="address" name="address" required>
         </div>
         <div style="display: inline-block; display:flex; justify-content:center; align-items:center;">
             <button style="margin-right: 20px; width: 150px" type="submit" class="btn btn-secondary">Create Account</button>
@@ -121,7 +120,7 @@
 </div>
 <script>
     function redirectCreateAccount() {
-        window.location.href = "createAccount.jsp";
+        window.location.href = "${pageContext.request.contextPath}/";
     }
 </script>
 <script>

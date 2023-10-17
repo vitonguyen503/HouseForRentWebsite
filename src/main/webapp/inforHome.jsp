@@ -1,3 +1,14 @@
+<%@ page import="com.example.housemanage.controller.InforRoomServlet" %>
+<%@ page import="com.example.housemanage.controller.DBConnection" %>
+<%@ page import="com.example.housemanage.model.Room" %>
+<%@ page import="com.example.housemanage.model.user" %>
+<%
+    int roomid = Integer.parseInt(request.getParameter("roomid"));
+    InforRoomServlet inforRoomServlet = new InforRoomServlet();
+    Room room = inforRoomServlet.roomInfor(roomid);
+    user user = inforRoomServlet.userInfor(roomid);
+%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -5,7 +16,7 @@
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        header .bg-white shadow{
+        form .bg-white shadow{
             position: fixed;
         }
         #local{
@@ -103,40 +114,44 @@
         </div>
     </nav>
 
-    <header class="bg-white shadow" style="position: fixed; width:100%; top:60px">
-        <select style="width: 15%;" id="local" class="block w-full px-4 py-2 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+    <form class="bg-white shadow" style="position: fixed; width:100%; top:60px" method="post" action="roomSearch.jsp">
+        <select name="local" style="width: 15%;" id="local" class="block w-full px-4 py-2 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
             <option selected>Local</option>
-            <option value="HaNoi">Hà Nội</option>
-            <option value="TPHCM">TP.Hồ Chí Minh</option>
-            <option value="DaNang">Đà Nẵng</option>
-            <option value="CanTho">Cần Thơ</option>
-            <option value="HaiPhong">Hải Phòng</option>
-            <option value="KhanhHoa">Khánh Hòa</option>
+            <option value="NewYork">NewYork</option>
+            <option value="Los Angeles">Los Angeles</option>
+            <option value="Chicago">Chicago</option>
+            <option value="San Francisco">San Francisco</option>
+            <option value="Miami">Miami</option>
+            <option value="Austin">Austin</option>
+            <option value="Boston">Boston</option>
+            <option value="Seattle">Seattle</option>
+            <option value="New Orlean">New Orlean</option>
+            <option value="Denver">Denver</option>
         </select>
 
-        <select style="width: 15%;" id="area" class="block w-full px-4 py-2 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <select name="area" style="width: 15%;" id="area" class="block w-full px-4 py-2 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
             <option selected>Area</option>
-            <option>10-15m&sup2</option>
-            <option>15-20m&sup2</option>
-            <option>20-25m&sup2</option>
-            <option>25-30m&sup2</option>
-            <option>30-35m&sup2</option>
-            <option>>35m&sup2</option>
+            <option>10-70</option>
+            <option>70-200</option>
+            <option>200-300</option>
+            <option>400-600</option>
+            <option>800-1000</option>
+            <option>>1000</option>
         </select>
 
-        <select style="width: 15%;" id="price" class="block w-full px-4 py-2 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            <option selected>Prices</option>
-            <option>1-2tr</option>
-            <option>2-2.5tr</option>
-            <option>2.5-3tr</option>
-            <option>3-5tr</option>
-            <option> >5tr </option>
-            <option> >10tr </option>
+        <select name="price" style="width: 15%;" id="price" class="block w-full px-4 py-2 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <option selected>Prices($)</option>
+            <option>100-250</option>
+            <option>250-500</option>
+            <option>500-700</option>
+            <option>700-900</option>
+            <option>900-1200</option>
+            <option> >1200 </option>
         </select>
 
-        <input class="inputsearch" type="text" style="width: 20%;" placeholder="Search">
-        <button style="display: inline-block; margin-left:3%; margin-top:-5px" type="button" class="btn btn-secondary">Search</button>
-    </header>
+        <input name="inputsearch" class="inputsearch" type="search" style="width: 20%;" placeholder="Search">
+        <button style="display: inline-block; margin-left:3%; margin-top:-5px" type="submit" class="btn btn-secondary">Search</button>
+    </form>
 
     <!-- description -->
     <div style="margin-top:150px; margin-left: 10%; margin-right: 10%;">
@@ -171,47 +186,48 @@
         <div class="mt-6 border-t border-gray-100">
             <dl class="divide-y divide-gray-100">
                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                    <dt class="text-sm font-medium leading-6 text-gray-900">Title</dt>
-                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Title</dd>
+                    <dt class="text-sm font-medium leading-6 text-gray-900">Heading</dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%=room.getHeading()%></dd>
                 </div>
                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                     <dt class="text-sm font-medium leading-6 text-gray-900">Address</dt>
-                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">So nha 226 Kien Hung Ha Dong Ha Noi</dd>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%=room.getAddress()%></dd>
                 </div>
                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                     <dt class="text-sm font-medium leading-6 text-gray-900">Area</dt>
-                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">20m2</dd>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%=room.getArea()%></dd>
                 </div>
                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                     <dt class="text-sm font-medium leading-6 text-gray-900">Prices/month</dt>
-                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">2.4tr</dd>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%=room.getPrice()%></dd>
                 </div>
                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                     <dt class="text-sm font-medium leading-6 text-gray-900">Description</dt>
-                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu.</dd>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%=room.getDescription()%></dd>
                 </div>
                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                    <dt class="text-sm font-medium leading-6 text-gray-900">Thông tin người đăng bài</dt>
+                    <dt class="text-sm font-medium leading-6 text-gray-900">User Profile Information</dt>
                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
                         <ul>
-                            <li><dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Nguyễn Thế Vũ</dd></li>
-                            <li><dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Hà Nội</dd></li>
-                            <li><dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">0966344956</dd></li>
+                            <li><dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%=user.getName()%></dd></li>
+                            <li><dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%=user.getEmail()%></dd></li>
+                            <li><dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%=user.getNumber()%></dd></li>
                         </ul>
                     </dd>
                 </div>
                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                    <dt class="text-sm font-medium leading-6 text-gray-900">Liên hệ Zalo hoặc gọi điện thoại</dt>
-                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">0966344956</dd>
+                    <dt class="text-sm font-medium leading-6 text-gray-900">Number Contact</dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%=user.getNumber()%></dd>
                 </div>
             </dl>
+
 
             <div style="display: flex; justify-content:center; margin-bottom:15px;">
                 <button id="showFormLink" type="button" class="btn btn-warning">Contact</button>
             </div>
             <div class="overlay" id="overlay"></div>
             <div class="form-container" id="formContainer">
-                <form style="background-color: rgb(243, 239, 248); padding:20px; max-height:75vh; width:100%; overflow-y: auto;">
+                <form style="background-color: rgb(243, 239, 248); padding:20px; max-height:75vh; width:100%; overflow-y: auto;" method="post" action="${pageContext.request.contextPath}/inforHome">
                     <div class="space-y-12">
                         <div class="border-b border-gray-900/10 pb-12">
                             <h2 class="text-base font-semibold leading-7 text-gray-900">Notion</h2>
@@ -219,10 +235,10 @@
 
                             <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                                 <div class="sm:col-span-full">
-                                    <label for="roomid" class="block text-sm font-medium leading-6 text-gray-900">RoomID</label>
+                                    <label for="roomID" class="block text-sm font-medium leading-6 text-gray-900">Room ID</label>
                                     <div class="mt-2">
-                                        <div  class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                                            <input style="height: 30px; padding-left: 7px;" type="text" name="roomid" id="roomid" autocomplete="roomid" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6">
+                                        <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                                            <input required style="height: 30px; padding-left: 7px;" type="text" name="roomID" id="roomID" autocomplete="roomID" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6" value="<%=room.getID()%>">
                                         </div>
                                     </div>
                                 </div>
@@ -231,7 +247,7 @@
                                     <label for="sendername" class="block text-sm font-medium leading-6 text-gray-900">Sender Name</label>
                                     <div class="mt-2">
                                         <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                                            <input style="height: 30px; padding-left: 7px;" type="text" name="sendername" id="sendername" autocomplete="sendername" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6">
+                                            <input required style="height: 30px; padding-left: 7px;" type="text" name="sendername" id="sendername" autocomplete="sendername" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6">
                                         </div>
                                     </div>
                                 </div>
@@ -240,7 +256,7 @@
                                     <label for="sendernumber" class="block text-sm font-medium leading-6 text-gray-900">Sender Number</label>
                                     <div class="mt-2">
                                         <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                                            <input style="height: 30px; padding-left: 7px;" type="number" name="sendernumber" id="sendernumber" autocomplete="sendernumber" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6">
+                                            <input required style="height: 30px; padding-left: 7px;" type="number" name="sendernumber" id="sendernumber" autocomplete="sendernumber" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6">
                                         </div>
                                     </div>
                                 </div>
@@ -253,7 +269,7 @@
                                     <p class="mt-3 text-sm leading-6 text-gray-600">Write a few sentences for the poster.</p>
                                 </div>
                             </div>
-                            <button onclick="redirectinforHome()" style="margin-top: 20px; margin-left:75%" type="button" class="btn btn-secondary">Send</button>
+                            <button style="margin-top: 20px; margin-left:75%" type="submit" class="btn btn-secondary">Send</button>
                         </div>
                     </div>
                 </form>
@@ -278,11 +294,6 @@
     <script>
         function redirectLogin() {
             window.location.href = "login.jsp";
-        }
-    </script>
-    <script>
-        function redirectFormReverse() {
-            window.location.href = "formReverse.jsp";
         }
     </script>
 </body>

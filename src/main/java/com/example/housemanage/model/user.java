@@ -2,13 +2,13 @@ package com.example.housemanage.model;
 
 public class user {
     int ID;
-    String username, password, name, email, number;
+    String username, password, name, email, number, address;
     byte avatar;
 
     public user() {
     }
 
-    public user(int ID, String username, String password, String name, String email, String number, byte avatar) {
+    public user(int ID, String username, String password, String name, String email, String number, byte avatar, String address) {
         this.ID = ID;
         this.username = username;
         this.password = password;
@@ -16,6 +16,7 @@ public class user {
         this.email = email;
         this.number = number;
         this.avatar = avatar;
+        this.address = address;
     }
 
     public int getID() {
@@ -72,5 +73,13 @@ public class user {
 
     public void setAvatar(byte avatar) {
         this.avatar = avatar;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

@@ -1,3 +1,16 @@
+<%@ page import="com.example.housemanage.controller.EditRoomServlet" %>
+<%@ page import="com.example.housemanage.model.Room" %>
+<%@ page import="com.example.housemanage.model.user" %>
+<%@ page import="com.example.housemanage.model.reverse" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+<%
+    int roomid = Integer.parseInt(request.getParameter("roomid"));
+    EditRoomServlet editRoomServlet = new EditRoomServlet();
+    Room room = editRoomServlet.roomInfor(roomid);
+    List<reverse> reverses = new ArrayList<>();
+    int sum = reverses.size();
+%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -134,59 +147,50 @@
                     <div class="sm:col-span-4">
                         <label style="color: #000; font-size:15px;" for="roomid" class="block text-sm font-medium leading-6 text-gray-900">RoomID</label>
                         <div class="mt-2">
-                            <input type="text" name="roomid" id="roomid" autocomplete="roomid" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input value="<%=room.getID()%>" type="text" name="roomid" id="roomid" autocomplete="roomid" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
 
                     <div class="col-span-full">
                         <label style="color: #000; font-size:15px;" for="title" class="block text-sm font-medium leading-6 text-gray-900">Title</label>
                         <div class="mt-2">
-                            <textarea id="title" name="title" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                            <textarea id="title" name="title" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"><%=room.getHeading()%></textarea>
                         </div>
                     </div>
 
                     <div class="col-span-full">
                         <label style="color: #000; font-size:15px;" for="streetaddress" class="block text-sm font-medium leading-6 text-gray-900">Street Address</label>
                         <div class="mt-2">
-                            <input type="text" name="streetaddress" id="streetaddress" autocomplete="streetaddress" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input value="<%=room.getAddress()%>" type="text" name="streetaddress" id="streetaddress" autocomplete="streetaddress" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
 
                     <div class="sm:col-span-3">
                         <label style="color: #000; font-size:15px;" for="city" class="block text-sm font-medium leading-6 text-gray-900">City</label>
                         <div class="mt-2">
-                            <select id="city" name="city" autocomplete="city" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
-                                <option selected>Local</option>
-                                <option value="HaNoi">Hà Nội</option>
-                                <option value="TP.HCM">TP.Hồ Chí Minh</option>
-                                <option value="DaNang">Đà Nẵng</option>
-                                <option value="CanTho">Cần Thơ</option>
-                                <option value="HaiPhong">Hải Phòng</option>
-                                <option value="KhanhHoa">Khánh Hòa</option>
-                            </select>
+                            <input value="<%=room.getCity()%>" type="text" name="city" id="city" autocomplete="city" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
 
                     <div class="sm:col-span-2 sm:col-start-1">
                         <label style="color: #000; font-size:15px;" for="area" class="block text-sm font-medium leading-6 text-gray-900">Area</label>
                         <div class="mt-2">
-                            <input type="number" step="0.01" inputmode="decimal" name="area" id="area" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input value="<%=room.getArea()%>" type="number" step="0.01" inputmode="decimal" name="area" id="area" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
 
                     <div class="sm:col-span-2">
                         <label style="color: #000; font-size:15px;" for="price" class="block text-sm font-medium leading-6 text-gray-900">Price</label>
                         <div class="mt-2">
-                            <input type="number" name="price" id="price" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input value="<%=room.getPrice()%>" type="number" name="price" id="price" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
 
                     <div class="col-span-full">
                         <label style="color: #000; font-size:15px;" for="description" class="block text-sm font-medium leading-6 text-gray-900">Description</label>
                         <div class="mt-2">
-                            <textarea id="description" name="description" rows="4" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                            <textarea id="description" name="description" rows="4" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"><%=room.getDescription()%></textarea>
                         </div>
-                        <p class="mt-3 text-sm leading-6 text-gray-600">Write a few sentences about home.</p>
                     </div>
 
                     <div class="col-span-full">
@@ -211,7 +215,7 @@
             </div>
         </div>
 
-        <p><a href="#" id="showFormLink">Reservation: ${sum}</a></p>
+        <p><a href="#" id="showFormLink">Reservation: <%=reverses.size()%></a></p>
         <div class="overlay" id="overlay"></div>
         <div class="form-container" id="formContainer">
             <body>
@@ -228,11 +232,14 @@
                             </tr>
                         </thead>
                         <tbody >
+                        <%
+                            for(reverse reverse : reverses){%>
+                        %>
                             <tr>
-                                <th style="text-align: center;">1</th>
-                                <td style="text-align: center;">Nguyen The Vu</td>
-                                <td style="text-align: center;">0966344956</td>
-                                <td style="padding: 10px;">Tôi muốn xem chi tiết hơn về nội thất trong phòng. Bạn hãy check tin nhắn của tôi trên Zalo.</td>
+                                <th style="text-align: center;"><%=reverse.getRoomID()%></th>
+                                <td style="text-align: center;"><%=reverse.getSenderName()%></td>
+                                <td style="text-align: center;"><%=reverse.getSenderNumber()%></td>
+                                <td style="padding: 10px;"><%=reverse.getSenderNote()%></td>
                             </tr>
 
                         </tbody>
@@ -257,7 +264,7 @@
 
         <div class="mt-6 flex items-center justify-end gap-x-6" style="margin-bottom: 10px;">
             <button onclick="redirectEditbaidang()" type="button" class="text-sm font-semibold leading-6 text-gray-900" style="color: #000; font-size:15px;">Cancel</button>
-            <button onclick="redirectTrangchuu()" type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+            <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
         </div>
     </form>
 </div>

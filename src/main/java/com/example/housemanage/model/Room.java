@@ -1,24 +1,37 @@
 package com.example.housemanage.model;
 
-public class room {
-    int ID;
-    int userID;
-    String heading, address, description;
+public class Room {
+    int ID, userID;
+    String heading, address, description, name, city;
     double area, price;
     byte image;
 
-    public room() {
+    public Room() {
     }
 
-    public room(int ID, int userID, String heading, String address, double area, double price, String description, byte image) {
+    public Room(String heading, double price, double area, String address, String description, byte image) {
+        this.heading = heading;
+        this.price = price;
+        this.area = area;
+        this.address = address;
+        this.description = description;
+        this.image = image;
+    }
+
+    public Room(int ID, String heading, String address, double area, double price, String description, byte image, String name, int userID) {
         this.ID = ID;
-        this.userID = userID;
+        this.name = name;
         this.heading = heading;
         this.address = address;
         this.area = area;
         this.price = price;
         this.description = description;
         this.image = image;
+        this.userID = userID;
+    }
+
+    public void display(){
+        System.out.println(this.heading + " " + this.description);
     }
 
     public int getID() {
@@ -29,12 +42,20 @@ public class room {
         this.ID = ID;
     }
 
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
+
     public int getUserID() {
         return userID;
     }
 
-    public void setUserID(int userID) {
-        this.userID = userID;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getHeading() {
@@ -84,4 +105,13 @@ public class room {
     public void setImage(byte image) {
         this.image = image;
     }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
 }
+
