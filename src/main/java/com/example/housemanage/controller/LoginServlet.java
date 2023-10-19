@@ -25,6 +25,7 @@ public class LoginServlet  extends HttpServlet {
         int userID = getUserId(username, password);
         HttpSession session = request.getSession();
         session.setAttribute("userID", userID);
+        session.setAttribute("username", username);
         boolean validUser = false;
 
         try {

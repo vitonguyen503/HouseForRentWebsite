@@ -62,7 +62,7 @@
                     </div>
                 </div>
             </div>
-            <button style="width: 13%; margin-top: 3px;" onclick="redirectLogin()" type="button" class="btn btn-secondary">+ Update new post</button>
+<%--            <button style="width: 13%; margin-top: 3px;" onclick="redirectLogin()" type="button" class="btn btn-secondary">+ Update new post</button>--%>
         </div>
     </div>
 </nav>

@@ -64,6 +64,7 @@ public class InforRoomServlet extends HttpServlet{
                 room.setAddress(resultSet.getString(6));
                 room.setDescription(resultSet.getString(7));
                 room.setImage(resultSet.getByte(8));
+                room.setCity(resultSet.getString(9));
             }
         } catch (Exception ex){
             ex.printStackTrace();

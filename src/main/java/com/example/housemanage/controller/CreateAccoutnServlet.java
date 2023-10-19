@@ -18,12 +18,12 @@ public class CreateAccoutnServlet extends HttpServlet {
         String username = request.getParameter("username").trim();
         String password = request.getParameter("password").trim();
         String confirm = request.getParameter("confirmpassword").trim();
-        String name = request.getParameter("name").trim();
+//        String name = request.getParameter("name").trim();
         String email = request.getParameter("email").trim();
         String number = request.getParameter("number").trim();
         String address = request.getParameter("address").trim();
 
-        if(Objects.equals(username, "") || Objects.equals(password, "") || Objects.equals(confirm, "") || Objects.equals(name, "") || Objects.equals(email, "") || Objects.equals(number, "") || Objects.equals(address, "")) {
+        if(Objects.equals(username, "") || Objects.equals(password, "") || Objects.equals(confirm, "") || Objects.equals(email, "") || Objects.equals(number, "") || Objects.equals(address, "")) {
             request.setAttribute("error", "Missing information!");
             doGet(request, response);
         } else if(!password.equals(confirm)){
@@ -47,14 +47,14 @@ public class CreateAccoutnServlet extends HttpServlet {
                     doGet(request, response);
             }else {
                 try{
-                    sql = "INSERT INTO user (username, password, name, email, number, address) VALUES (?, ?, ?, ?, ?, ?)";
+                    sql = "INSERT INTO user (username, password, email, number, address) VALUES (?, ?, ?, ?, ?)";
                     PreparedStatement preparedStatement = connection.prepareStatement(sql);
                     preparedStatement.setString(1, username);
                     preparedStatement.setString(2, password);
-                    preparedStatement.setString(3, name);
-                    preparedStatement.setString(4, email);
-                    preparedStatement.setString(5, number);
-                    preparedStatement.setString(6, address);
+//                    preparedStatement.setString(3, name);
+                    preparedStatement.setString(3, email);
+                    preparedStatement.setString(4, number);
+                    preparedStatement.setString(5, address);
 
                     int rowsInserted = preparedStatement.executeUpdate();
 
@@ -76,13 +76,4 @@ public class CreateAccoutnServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         getServletContext().getRequestDispatcher("/createAccount.jsp").forward(request, response);
     }
-//    public void destroy() {
-//        super.destroy();
-//        try {
-//            statement.close();
-//            connection.close();
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
 }

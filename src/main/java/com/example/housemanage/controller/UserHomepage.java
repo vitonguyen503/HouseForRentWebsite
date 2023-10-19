@@ -8,10 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.LinkedList;
@@ -21,6 +18,7 @@ import java.util.List;
 public class UserHomepage extends HttpServlet {
     private final Connection connection = DBConnection.getConnection();
     ResultSet resultSet = null;
+    PreparedStatement statement;
     @Override
     public void init() throws ServletException {
         super.init();

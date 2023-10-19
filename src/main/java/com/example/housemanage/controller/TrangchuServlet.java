@@ -16,21 +16,19 @@ public class TrangchuServlet{
     private Connection connection = DBConnection.getConnection();
     private PreparedStatement statement;
     private ResultSet resultSet;
-//    public TrangchuServlet(Connection connection){
-//        this.connection = connection;
-//    }
+
     public List<Room> getRoom() {
         List<Room> roomList = new ArrayList<>();
         try {
             String sql = "SELECT r.roomID, r.heading, r.price, r.area, r.address, r.description, u.name\n" +
                     "FROM room r\n" +
                     "JOIN user u ON r.userID = u.ID;";
-//          PreparedStatement preparedStatement = connection.prepareStatement(sql);
             statement = this.connection.prepareStatement(sql);
             resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 Room room = new Room();
-//              room.setID(resultSet.getInt("id"));
+//                room.setID(resultSet.getInt("id"));
+                room.setID(resultSet.getInt(1));
                 room.setHeading(resultSet.getString("heading"));
                 room.setPrice(resultSet.getDouble("price"));
                 room.setArea(resultSet.getDouble("area"));

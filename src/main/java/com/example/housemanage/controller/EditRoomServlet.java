@@ -29,13 +29,14 @@ public class EditRoomServlet extends HttpServlet {
         double area = Double.parseDouble("area");
         double price = Double.parseDouble("price");
         String description = req.getParameter("description");
-        int roomid = Integer.parseInt(req.getParameter("roomid"));
+        String roomID = req.getParameter("roomID");
+        int roomid = Integer.parseInt(roomID);
         try{
-            String sql = "update room set heading = '" + title + "', address = '" + address + "', city = '" + city + "', area = '" + area + "', price = '" + price + "', description = '" + description + "';\n" +
-                    "where roomID = " + roomid + ";";
+            String sql = "update room set heading = '" + title + "', address = '" + address + "', city = '" + city + "', area = '" + area + "', price = '" + price + "', description = '" + description + "' where roomID = " + roomid + ";";
             statement = connection.prepareStatement(sql);
             statement.executeUpdate();
-
+            String link = "/editHome.jsp?roomid=" + roomid;
+            getServletContext().getRequestDispatcher(link).forward(req, resp);
         }
         catch (SQLException ex){
             req.setAttribute("error", "Can't connect to database!");
@@ -45,27 +46,28 @@ public class EditRoomServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        getServletContext().getRequestDispatcher("/editHome.jsp").forward(req, resp);
     }
 
     public Room roomInfor(int id){
-        Room room = null;
+        Room room = new Room();
         try{
-            String sql = "select * from room where roomID=?";
+            String sql = "select roomID, userID, heading, address, city, area, price, description, image from room where roomID=?";
             statement = connection.prepareStatement(sql);
             statement.setInt(1, id);
-
             resultSet = statement.executeQuery();
             while(resultSet.next()){
-                room = new Room();
+//                room = new Room();
                 room.setID(resultSet.getInt(1));
                 room.setUserID(resultSet.getInt(2));
                 room.setHeading(resultSet.getString(3));
-                room.setArea(resultSet.getDouble(4));
-                room.setPrice(resultSet.getDouble(5));
-                room.setAddress(resultSet.getString(6));
-                room.setDescription(resultSet.getString(7));
-                room.setImage(resultSet.getByte(8));
+                room.setAddress(resultSet.getString(4));
+                room.setCity(resultSet.getString(5));
+                room.setArea(resultSet.getDouble(6));
+                room.setPrice(resultSet.getDouble(7));
+                room.setDescription(resultSet.getString(8));
+                room.setImage(resultSet.getByte(9));
+
             }
         } catch (Exception ex){
             ex.printStackTrace();

@@ -1,5 +1,6 @@
 <%@ page import="com.example.housemanage.model.Room" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.example.housemanage.controller.UserHomepage" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -79,36 +80,39 @@
 <div>
     <b><h3 style="color: #000000; text-align:center; padding:15px; margin-top: 80px;">All your posts</h3></b>
 </div>
-<div style="margin-top:15px; margin-left:10%;">
+<div style="margin-top:10px; margin-left:10%;">
     <p style="color: #000;">Total posts: ${count}</p>
-    <p style="color: #000; padding-bottom:10px;">${error}</p>
+<%--    <p style="color: #000; padding-bottom:10px;">${error}</p>--%>
 </div>
 
-<main style="margin-left: 7%; margin-right:7%;">
+<main style="margin-left: 7%; margin-right:29%;">
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8" style="margin-top: 20px;">
         <!-- Your content -->
-        <%List<Room> list_of_rooms = (List<Room>) request.getAttribute("list_of_room");%>
+        <% List<Room> list_of_rooms = (List<Room>) request.getAttribute("list_of_room");%>
         <% for (Room room : list_of_rooms) { %>
         <div class="row">
             <div class="col-md-3">
                 <div class="card">
-                    <a href="editHome.jsp"><img style="max-width: 100%;" src="img/anh2.jpg" alt=""></a>
+                    <a href="editHome.jsp?roomid=<%=room.getID()%>"><img style="max-width: 100%;" src="img/anh2.jpg" alt=""></a>
                 </div>
             </div>
             <div class="col-md-8">
                 <div class="card" style="border: 0;">
-                    <b><a style="text-decoration: none; color:black;" href="editHome.jsp"><%= room.getHeading() %></a></b>
+                    <b><a style="text-decoration: none; color:black;" href="editHome.jsp?roomid=<%=room.getID()%>"><%= room.getHeading() %></a></b>
                     <div>
                         <p style="color: brown; display:inline-block;"><b><%= room.getPrice() %></b></p>
                         <p style="display: inline-block; margin-left: 4%;"><%= room.getArea() %></p>
                         <p style="display: inline-block; margin-left: 4%;"><%= room.getAddress() %></p>
                     </div>
                     <p style="color: rgb(122, 121, 120); font-size: 12px;"><%= room.getDescription() %></p>
+
                 </div>
 
             </div>
             <div class="col-md-1">
-                <button onclick="redirectDelete()" class="absolute right-0 w-8 h-8 p-1 bg-red-600 text-white flex items-center justify-center rounded" id="close-button">X</button>
+                <a href="/delete">
+                    <button type="submit" class="absolute right-0 w-8 h-8 p-1 bg-red-600 text-white flex items-center justify-center rounded" id="close-button">X</button>
+                </a>
             </div>
         </div>
         <div style="height: 12px;"></div>

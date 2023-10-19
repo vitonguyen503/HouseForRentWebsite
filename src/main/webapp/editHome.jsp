@@ -8,8 +8,7 @@
     int roomid = Integer.parseInt(request.getParameter("roomid"));
     EditRoomServlet editRoomServlet = new EditRoomServlet();
     Room room = editRoomServlet.roomInfor(roomid);
-    List<reverse> reverses = new ArrayList<>();
-    int sum = reverses.size();
+    List<reverse> reverses = editRoomServlet.TableReservation(roomid);
 %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -25,7 +24,7 @@
             margin-left: 20%;
             margin-top: 80px;
         }
-        #roomid{
+        #roomID{
             padding-left: 20px;
             height:30px;
 
@@ -41,6 +40,7 @@
         }
         #city{
             height:30px;
+            padding-left: 15px;
         }
         #area{
             padding-left: 15px;
@@ -138,16 +138,16 @@
 </nav>
 
 <div class="KhoiDuoi">
-    <form style="background-color: rgb(243, 239, 248);">
+    <form style="background-color: rgb(243, 239, 248);" method="post" action="${pageContext.request.contextPath}/editroom">
         <div class="space-y-12">
             <div class="border-b border-gray-900/10 pb-12">
                 <b><p style="color: #000; font-size:30px; text-align:center; padding-top: 20px; padding-bottom:10px;" class="text-base font-semibold leading-7 text-gray-900">Edit your post</p></b>
 
                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div class="sm:col-span-4">
-                        <label style="color: #000; font-size:15px;" for="roomid" class="block text-sm font-medium leading-6 text-gray-900">RoomID</label>
+                        <label style="color: #000; font-size:15px;" for="roomID" class="block text-sm font-medium leading-6 text-gray-900">RoomID</label>
                         <div class="mt-2">
-                            <input value="<%=room.getID()%>" type="text" name="roomid" id="roomid" autocomplete="roomid" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input value="<%=room.getID()%>" type="text" name="roomID" id="roomID" autocomplete="roomID" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
 
@@ -232,19 +232,19 @@
                             </tr>
                         </thead>
                         <tbody >
-                        <%
-                            for(reverse reverse : reverses){%>
-                        %>
+                        <% int i = 1;
+                            for(reverse reverse1 : reverses){ %>
                             <tr>
-                                <th style="text-align: center;"><%=reverse.getRoomID()%></th>
-                                <td style="text-align: center;"><%=reverse.getSenderName()%></td>
-                                <td style="text-align: center;"><%=reverse.getSenderNumber()%></td>
-                                <td style="padding: 10px;"><%=reverse.getSenderNote()%></td>
+                                <th style="text-align: center;"><%=i%></th>
+                                <td style="text-align: center;"><%=reverse1.getSenderName()%></td>
+                                <td style="text-align: center;"><%=reverse1.getSenderNumber()%></td>
+                                <td style="padding: 10px;"><%=reverse1.getSenderNote()%></td>
                             </tr>
-
+                        <%i++; }%>
                         </tbody>
                     </table>
                 </div>
+
             </form>
             </body>
         </div>
@@ -276,7 +276,7 @@
 </script>
 <script>
     function redirectEditbaidang() {
-        window.location.href = "editHome.jsp";
+        window.location.href = "";
     }
 </script>
 <script>
