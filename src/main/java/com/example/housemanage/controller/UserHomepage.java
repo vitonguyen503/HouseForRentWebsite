@@ -19,6 +19,8 @@ public class UserHomepage extends HttpServlet {
     private final Connection connection = DBConnection.getConnection();
     ResultSet resultSet = null;
     PreparedStatement statement;
+
+    int userID;
     @Override
     public void init() throws ServletException {
         super.init();
@@ -31,7 +33,7 @@ public class UserHomepage extends HttpServlet {
             goToIndexPage(resp);
         String user = new String(Base64.getDecoder().decode(encoded));
         String sql = "SELECT * FROM user WHERE username = ?";
-        int userID = Integer.MIN_VALUE;
+        userID = Integer.MIN_VALUE;
         boolean validUser = false;
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -50,8 +52,7 @@ public class UserHomepage extends HttpServlet {
             goToIndexPage(resp);
         else {
             List<Room> list_of_room = getContent(userID);
-            for(Room r : list_of_room)
-                r.display();
+            req.setAttribute("userID", userID);
             req.setAttribute("user", user);
             req.setAttribute("encodedUser", encoded);
             req.setAttribute("count", list_of_room.size());
@@ -71,19 +72,20 @@ public class UserHomepage extends HttpServlet {
 
     List<Room> getContent(int userID){
         List<Room> listOfRooms = new LinkedList<>();
-        String sql = "SELECT heading, price, area, address, description, image FROM room WHERE userID = ?";
+        String sql = "SELECT roomID, heading, price, area, address, description, image FROM room WHERE userID = ?";
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, userID);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
+                int roomID = resultSet.getInt("roomID");
                 String heading = resultSet.getString("heading");
                 double price = resultSet.getDouble("price");
                 double area = resultSet.getDouble("area");
                 String address = resultSet.getString("address");
                 String description = resultSet.getString("description");
-                byte image = resultSet.getByte("image");
-                listOfRooms.add(new Room(heading, price, area, address, description, image));
+                byte[] image = resultSet.getBytes("image");
+                listOfRooms.add(new Room(roomID, heading, price, area, address, description, image));
             }
         } catch (Exception exception){
             exception.printStackTrace();

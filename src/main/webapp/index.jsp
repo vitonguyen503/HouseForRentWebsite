@@ -236,7 +236,7 @@
             top: 0;
             left: 0;
             height: 100%;
-            width: -100%;
+            width: 100%;
             background: #000000;
             border-radius: 10px;
             transform: scaleX(0);
@@ -343,7 +343,7 @@
                              <div class="row">
                                 <div class="col-md-3">
                                     <div class="card">
-                                        <a href="inforHome.jsp"><img style="max-width: 100%;" src="img/anh2.jpg" alt=""></a>
+                                        <a href="inforHome.jsp?roomid=<%=room.getID()%>"><img style="max-width: 100%;" src="img/anh2.jpg" alt=""></a>
                                     </div>
                                 </div>
                                 <div class="col-md-9">
@@ -355,7 +355,7 @@
                                             <p style="display: inline-block; margin-left: 4%;">Address: <%= room.getAddress() %></p>
                                         </div>
                                         <p style="color: rgb(122, 121, 120); font-size: 12px;"><%= room.getDescription() %></p>
-                                        <img style="display: inline-block;" src="" alt=""> <p style="display: inline-block;">Owner: <%= room.getName() %></p>
+                                        <img style="display: inline-block;" src="" alt=""> <p style="display: inline-block;"></p>
                                     </div>
                                 </div>
                              </div>

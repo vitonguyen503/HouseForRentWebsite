@@ -185,11 +185,11 @@
                     <b><a style="text-decoration: none; color:black;" href="inforHome.jsp?roomid=<%=room.getID()%>"><%= room.getHeading() %></a></b>
                     <div>
                         <p style="color: brown; display:inline-block;"><b><%= room.getPrice() %>$</b></p>
-                        <p style="display: inline-block; margin-left: 4%;"><%= room.getArea()%>msup&2</p>
+                        <p style="display: inline-block; margin-left: 4%;"><%= room.getArea()%>m2</p>
                         <p style="display: inline-block; margin-left: 4%;">Address: <%= room.getAddress() %></p>
                     </div>
                     <p style="color: rgb(122, 121, 120); font-size: 12px;"><%= room.getDescription() %></p>
-                    <img style="display: inline-block;" src="" alt=""> <p style="display: inline-block;">Article author: <%= room.getName() %></p>
+                    <img style="display: inline-block;" src="" alt=""> <p style="display: inline-block;">
                 </div>
             </div>
         </div>

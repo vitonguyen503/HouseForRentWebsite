@@ -79,13 +79,13 @@
 
 <div class="container">
 
-    <form class="form" method="post" action="${pageContext.request.contextPath}/createaccount">
+    <form class="form" method="post" enctype="multipart/form-data" action="${pageContext.request.contextPath}/createaccount">
         <div class="back-button" onclick="redirectLogin()">&#8592;</div>
         <h3 style="color: brown; text-align: center">Create Account</h3>
         <div class="error-message" style="color: brown; text-align: center;">${error}</div>
         <div style="color: brown; text-align: center;" class="success-message">${message}</div>
         <div class="mb-3">
-            <label for="username" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>UserName</b></label>
+            <label for="username" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>Username</b></label>
             <input type="text" class="form-control" id="username" name = "username" required>
         </div>
         <div class="mb-3">
@@ -96,21 +96,17 @@
             <label for="confirmpassword" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>Confirm Password</b></label>
             <input type="password" class="form-control" id="confirmpassword" name="confirmpassword" required>
         </div>
-<%--        <div class="mb-3">--%>
-<%--            <label for="name" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>Name</b></label>--%>
-<%--            <input type="text" class="form-control" id="name" name = "name" required>--%>
-<%--        </div>--%>
         <div class="mb-3">
             <label for="email" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>Email</b></label>
             <input type="email" class="form-control" id="email" name="email" required>
         </div>
         <div class="mb-3">
             <label for="number" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>Number</b></label>
-            <input type="number" class="form-control" id="number" name = "number" required>
+            <input type="number" class="form-control" id="number" name="number" required>
         </div>
         <div class="mb-3">
-            <label for="address" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>Address</b></label>
-            <input type="text" class="form-control" id="address" name="address" required>
+            <label for="file" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>Avatar</b></label>
+            <input type="file" name="file" class="form-control" id="file"><br>
         </div>
         <div style="display: inline-block; display:flex; justify-content:center; align-items:center;">
             <button style="margin-right: 20px; width: 150px" type="submit" class="btn btn-secondary">Create Account</button>
@@ -120,7 +116,7 @@
 </div>
 <script>
     function redirectCreateAccount() {
-        window.location.href = "${pageContext.request.contextPath}/";
+        window.location.href = "${pageContext.request.contextPath}/login";
     }
 </script>
 <script>

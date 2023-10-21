@@ -345,7 +345,7 @@
                         <dt class="text-sm font-medium leading-6 text-gray-900">User Profile Information</dt>
                         <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
                             <ul>
-                                <li><dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%=user.getName()%></dd></li>
+                                <li><dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%=user.getUsername()%></dd></li>
                                 <li><dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%=user.getEmail()%></dd></li>
                                 <li><dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%=user.getNumber()%></dd></li>
                             </ul>
@@ -363,21 +363,21 @@
                 </div>
                 <div class="overlay" id="overlay"></div>
                 <div class="form-container" id="formContainer">
-                    <form style="background-color: rgb(243, 239, 248); padding:20px; max-height:75vh; width:100%; overflow-y: auto;" method="post" action="${pageContext.request.contextPath}/inforHome">
+                    <form style="background-color: rgb(243, 239, 248); padding:20px; max-height:75vh; width:100%; overflow-y: auto;" method="post" action="${pageContext.request.contextPath}/inforHome?roomid=<%=roomid%>">
                         <div class="space-y-12">
                             <div class="border-b border-gray-900/10 pb-12">
                                 <h2 class="text-base font-semibold leading-7 text-gray-900">Note</h2>
                                 <p class="mt-1 text-sm leading-6 text-gray-600">This information will be sended to the poster.</p>
 
                                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                                    <div class="sm:col-span-full">
-                                        <label for="roomID" class="block text-sm font-medium leading-6 text-gray-900">Room ID</label>
-                                        <div class="mt-2">
-                                            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                                                <input required style="height: 30px; padding-left: 7px;" type="text" name="roomID" id="roomID" autocomplete="roomID" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6" value="<%=room.getID()%>">
-                                            </div>
-                                        </div>
-                                    </div>
+<%--                                    <div class="sm:col-span-full">--%>
+<%--                                        <label for="roomID" class="block text-sm font-medium leading-6 text-gray-900">Room ID</label>--%>
+<%--                                        <div class="mt-2">--%>
+<%--                                            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">--%>
+<%--                                                <input required style="height: 30px; padding-left: 7px;" type="text" name="roomID" id="roomID" autocomplete="roomID" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6" value="<%=room.getID()%>">--%>
+<%--                                            </div>--%>
+<%--                                        </div>--%>
+<%--                                    </div>--%>
 
                                     <div class="sm:col-span-full">
                                         <label for="sendername" class="block text-sm font-medium leading-6 text-gray-900">Sender Name</label>

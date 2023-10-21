@@ -4,12 +4,13 @@ public class Room {
     int ID, userID;
     String heading, address, description, name, city;
     double area, price;
-    byte image;
+    byte[] image;
 
     public Room() {
     }
 
-    public Room(String heading, double price, double area, String address, String description, byte image) {
+    public Room(int ID, String heading, double price, double area, String address, String description, byte[] image) {
+        this.ID = ID;
         this.heading = heading;
         this.price = price;
         this.area = area;
@@ -18,7 +19,7 @@ public class Room {
         this.image = image;
     }
 
-    public Room(int ID, String heading, String address, double area, double price, String description, byte image, String name, int userID) {
+    public Room(int ID, String heading, String address, double area, double price, String description, byte[] image, String name, int userID) {
         this.ID = ID;
         this.name = name;
         this.heading = heading;
@@ -30,9 +31,6 @@ public class Room {
         this.userID = userID;
     }
 
-    public void display(){
-        System.out.println(this.heading + " " + this.description);
-    }
 
     public int getID() {
         return ID;
@@ -98,11 +96,11 @@ public class Room {
         this.price = price;
     }
 
-    public byte getImage() {
+    public byte[] getImage() {
         return image;
     }
 
-    public void setImage(byte image) {
+    public void setImage(byte[] image) {
         this.image = image;
     }
 

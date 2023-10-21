@@ -57,7 +57,6 @@ public class LoginServlet  extends HttpServlet {
             connection.setRequestMethod("GET");
             connection.disconnect();
             response.sendRedirect(completeURL);
-
         }
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{

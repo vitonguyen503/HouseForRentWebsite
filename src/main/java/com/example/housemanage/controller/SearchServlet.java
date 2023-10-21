@@ -22,7 +22,7 @@ public class SearchServlet {
         Room room = null;
 
         try{
-            String sql = "SELECT r.roomID, r.heading, r.price, r.area, r.address, r.description, u.name\n" +
+            String sql = "SELECT r.roomID, r.heading, r.price, r.area, r.address, r.description\n" +
                     "FROM room r JOIN user u ON r.userID = u.ID\n" + "WHERE 1=1";
             Double minArea = null;
             Double maxArea = null;
@@ -81,8 +81,7 @@ public class SearchServlet {
                 room.setPrice(resultSet.getDouble("price"));
                 room.setArea(resultSet.getDouble("area"));
                 room.setAddress(resultSet.getString("address"));
-                room.setDescription(resultSet.getString("description"));
-                room.setName(resultSet.getString("name"));
+                room.setDescription(resultSet.getString("description"));;
                 roomList.add(room);
             }
         } catch (Exception ex){

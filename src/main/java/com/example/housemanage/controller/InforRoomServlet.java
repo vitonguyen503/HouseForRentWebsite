@@ -26,7 +26,7 @@ public class InforRoomServlet extends HttpServlet{
         String senderName = req.getParameter("sendername");
         String senderNumber = req.getParameter("sendernumber");
         String senderNote = req.getParameter("sendernote");
-        String roomID = req.getParameter("roomID");
+        String roomID = req.getParameter("roomid");
         int i = Integer.parseInt(roomID);
         try {
             String sql = "insert into reservation (roomID, senderName, senderNumber, senderNote) values ('" + i + "', '" + senderName + "', '" + senderNumber + "', '" + senderNote + "');";
@@ -63,7 +63,7 @@ public class InforRoomServlet extends HttpServlet{
                 room.setPrice(resultSet.getDouble(5));
                 room.setAddress(resultSet.getString(6));
                 room.setDescription(resultSet.getString(7));
-                room.setImage(resultSet.getByte(8));
+                room.setImage(resultSet.getBytes(8));
                 room.setCity(resultSet.getString(9));
             }
         } catch (Exception ex){
@@ -89,17 +89,17 @@ public class InforRoomServlet extends HttpServlet{
                 room.setPrice(resultSet.getDouble(5));
                 room.setAddress(resultSet.getString(6));
                 room.setDescription(resultSet.getString(7));
-                room.setImage(resultSet.getByte(8));
+                room.setImage(resultSet.getBytes(8));
                 int i = room.getUserID();
-                String sql1 = "select name, email, number from user where ID=?";
+                String sql1 = "select email, number, username from user where ID = ?";
                 statement = connection.prepareStatement(sql1);
                 statement.setInt(1, i);
                 resultSet = statement.executeQuery();
                 while (resultSet.next()){
                     user = new user();
-                    user.setName(resultSet.getString(1));
-                    user.setNumber(resultSet.getString(3));
-                    user.setEmail(resultSet.getString(2));
+                    user.setUsername(resultSet.getString(3));
+                    user.setNumber(resultSet.getString(2));
+                    user.setEmail(resultSet.getString(1));
                 }
             }
         } catch (Exception ex){

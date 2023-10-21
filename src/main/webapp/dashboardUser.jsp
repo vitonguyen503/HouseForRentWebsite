@@ -1,6 +1,7 @@
 <%@ page import="com.example.housemanage.model.Room" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.example.housemanage.controller.UserHomepage" %>
+<%@ page import="java.util.Base64" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -51,7 +52,7 @@
 <%--                </div>--%>
             </div>
 
-            <button style="width: 7%; margin-top: 3px; margin-right:1%; "  onclick="redirectAdd()" type="button" class="btn btn-secondary">Add</button>
+            <button style="width: 10%; margin-top: 3px; margin-right:1%;" onclick=addButton() id="addButton" class="btn btn-secondary">Add new post</button>
             <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <div style="margin-right: 1%; width:100px; height:30px" class="relative bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                     <p style="color: #fff;">Hi, ${user}</p>
@@ -93,15 +94,18 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="card">
-                    <a href="editHome.jsp?roomid=<%=room.getID()%>"><img style="max-width: 100%;" src="img/anh2.jpg" alt=""></a>
+                    <a href="/HouseManage/home/edit?username=${encodedUser}&roomid=<%=Base64.getEncoder().encodeToString(String.valueOf(room.getID()).getBytes())%>">
+                        <img style="max-width: 100%;" src="img/anh2.jpg" alt=""></a>
                 </div>
             </div>
             <div class="col-md-8">
                 <div class="card" style="border: 0;">
-                    <b><a style="text-decoration: none; color:black;" href="editHome.jsp?roomid=<%=room.getID()%>"><%= room.getHeading() %></a></b>
+                    <b>
+                        <a style="text-decoration: none; color:black;" href="/HouseManage/home/edit?username=${encodedUser}&roomid=<%=Base64.getEncoder().encodeToString(String.valueOf(room.getID()).getBytes())%>"><%= room.getHeading() %></a>
+                    </b>
                     <div>
-                        <p style="color: brown; display:inline-block;"><b><%= room.getPrice() %></b></p>
-                        <p style="display: inline-block; margin-left: 4%;"><%= room.getArea() %></p>
+                        <p style="color: brown; display:inline-block;"><b><%= room.getPrice() %>$/month</b></p>
+                        <p style="display: inline-block; margin-left: 4%;"><%= room.getArea() %>m2</p>
                         <p style="display: inline-block; margin-left: 4%;"><%= room.getAddress() %></p>
                     </div>
                     <p style="color: rgb(122, 121, 120); font-size: 12px;"><%= room.getDescription() %></p>
@@ -110,7 +114,7 @@
 
             </div>
             <div class="col-md-1">
-                <a href="/delete">
+                <a href="/HouseManage/home/delete?username=${encodedUser}&roomid=<%=Base64.getEncoder().encodeToString(String.valueOf(room.getID()).getBytes())%>">
                     <button type="submit" class="absolute right-0 w-8 h-8 p-1 bg-red-600 text-white flex items-center justify-center rounded" id="close-button">X</button>
                 </a>
             </div>
@@ -129,14 +133,10 @@
 <script src="ButtonAvatar.js"></script>
 
 <script>
-    function redirectAdd() {
-        window.location.href = "addHome.jsp";
+    function addButton() {
+        window.location.href = "${pageContext.request.contextPath}/home/add?username=${encodedUser}&id=${userID}";
     }
 </script>
-<script>
-    function redirectDelete() {
-        window.location.href = "dashboardUser.jsp";
-    }
-</script>
+
 </body>
 </html>
