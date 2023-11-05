@@ -8,8 +8,8 @@
         .KhoiDuoi{
             position: relative;
             height: auto;
-            margin-right: 20%;
-            margin-left: 20%;
+            margin-right: 15%;
+            margin-left: 15%;
             margin-top: 80px;
         }
         #name{
@@ -31,9 +31,6 @@
         }
         #city{
             height:30px;
-        }
-        form{
-            padding: 20px;
         }
     </style>
 </head>
@@ -93,13 +90,13 @@
         </div>
     </nav>
     <div class="KhoiDuoi">
-        <form style="background-color: rgb(243, 239, 248);">
+        <form>
             <div class="space-y-12">
                 <div class="border-b border-gray-900/10 pb-12">
                     <div class="col-span-full">
-                        <b><p style="color: #000; font-size:30px; text-align:center; padding-top: 10px; padding-bottom:10px;">Your Information</p></b>
+                        <b><p style="color: #000; font-size:30px; text-align:center; padding-top: 10px; padding-bottom:10px;">Change Information</p></b>
                         <label style="color: #000; font-size:15px;" class="block text-sm font-medium leading-6 text-gray-900">Photo</label>
-                        <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                        <div style="background-color: rgb(253, 244, 232);" class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                             <div class="text-center">
                                 <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                     <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd"></path>
@@ -124,28 +121,28 @@
                     <div class="sm:col-span-3">
                         <label style="color: #000; font-size:15px;" for="name" class="block text-sm font-medium leading-6 text-gray-900">Name</label>
                         <div class="mt-2">
-                            <input type="text" name="name" id="name" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input style="background-color: rgb(253, 244, 232);" type="text" name="name" id="name" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
 
                     <div class="sm:col-span-3">
                         <label style="color: #000; font-size:15px;" for="phonenumber" class="block text-sm font-medium leading-6 text-gray-900">Phone Number</label>
                         <div class="mt-2">
-                            <input type="number" name="phonenumber" id="phonenumber" autocomplete="street-address" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input style="background-color: rgb(253, 244, 232);" type="number" name="phonenumber" id="phonenumber" autocomplete="street-address" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
 
                     <div class="sm:col-span-4">
                         <label style="color: #000; font-size:15px;" for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
                         <div class="mt-2">
-                            <input id="email" name="email" type="email" autocomplete="email" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input style="background-color: rgb(253, 244, 232);" id="email" name="email" type="email" autocomplete="email" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
 
                     <div class="sm:col-span-3">
                         <label style="color: #000; font-size:15px;" for="city" class="block text-sm font-medium leading-6 text-gray-900">City</label>
                         <div class="mt-2 sm:col-start-1">
-                            <select id="city" name="city" autocomplete="city-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                            <select style="background-color: rgb(253, 244, 232);" id="city" name="city" autocomplete="city-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
                                 <option selected>Local</option>
                                 <option value="HaNoi">Hà Nội</option>
                                 <option value="TP.HCM">TP.Hồ Chí Minh</option>

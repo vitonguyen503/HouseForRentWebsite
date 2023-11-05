@@ -7,7 +7,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+import javax.sql.DataSource;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Base64;
@@ -19,12 +21,7 @@ public class UserHomepage extends HttpServlet {
     private final Connection connection = DBConnection.getConnection();
     ResultSet resultSet = null;
     PreparedStatement statement;
-
     int userID;
-    @Override
-    public void init() throws ServletException {
-        super.init();
-    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -51,6 +48,29 @@ public class UserHomepage extends HttpServlet {
         if(!validUser)
             goToIndexPage(resp);
         else {
+//            try {
+//                sql = "SELECT avatar FROM user WHERE username = ?";
+//                statement = connection.prepareStatement(sql);
+//                statement.setString(1, user);
+//                ResultSet rs = statement.executeQuery();
+//
+//                if (rs.next()) {
+//                    // Get the image data
+//                    byte[] imageData = rs.getBytes("avatar");
+//
+//                    // Set the image data as a response content
+//                    resp.setContentType("image/jpeg"); // Set the appropriate content type
+//                    OutputStream oStream = resp.getOutputStream();
+//                    oStream.write(imageData);
+//                } else {
+//                    // Handle image not found
+//                    resp.sendError(HttpServletResponse.SC_NOT_FOUND);
+//                }
+//            } catch (Exception e) {
+//                // Handle database or other errors
+//                e.printStackTrace();
+//                resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+//            }
             List<Room> list_of_room = getContent(userID);
             req.setAttribute("userID", userID);
             req.setAttribute("user", user);

@@ -1,22 +1,14 @@
-package com.example.housemanage.model;
+package h503.roomforrent.model;
 
-public class User {
+public class user {
     int ID;
-    String username, password, name, email, number, address;
-    byte[] avatar;
+    String username, password, name, email, number;
+    byte avatar;
 
-    public User() {
+    public user() {
     }
 
-    public User(String password, String email, String number, String address, byte[] avatar){
-        this.password = password;
-        this.email = email;
-        this.number = number;
-        this.address = address;
-        this.avatar = avatar;
-    }
-
-    public User(int ID, String username, String password, String name, String email, String number, byte[] avatar, String address) {
+    public user(int ID, String username, String password, String name, String email, String number, byte avatar) {
         this.ID = ID;
         this.username = username;
         this.password = password;
@@ -24,7 +16,14 @@ public class User {
         this.email = email;
         this.number = number;
         this.avatar = avatar;
-        this.address = address;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public String getUsername() {
@@ -67,19 +66,11 @@ public class User {
         this.number = number;
     }
 
-    public byte[] getAvatar() {
+    public byte getAvatar() {
         return avatar;
     }
 
-    public void setAvatar(byte[] avatar) {
+    public void setAvatar(byte avatar) {
         this.avatar = avatar;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 }

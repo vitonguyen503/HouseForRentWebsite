@@ -64,13 +64,13 @@
                         <button type="button" class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                             <span class="absolute -inset-1.5"></span>
                             <span class="sr-only">Open user menu</span>
-                            <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                            <img class="h-8 w-8 rounded-full" src="avatar?username=${user}" alt="">
                         </button>
                     </div>
 
                     <div id="myForm" class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                         <!-- Active: "bg-gray-100", Not Active: "" -->
-                        <a href="${pageContext.request.contextPath}/changeInfo" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
+                        <a href="${pageContext.request.contextPath}/home/changeInfo?username=${encodedUser}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
                         <a href="${pageContext.request.contextPath}/" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
                     </div>
                 </div>
@@ -92,13 +92,13 @@
         <% List<Room> list_of_rooms = (List<Room>) request.getAttribute("list_of_room");%>
         <% for (Room room : list_of_rooms) { %>
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="card">
                     <a href="/HouseManage/home/edit?username=${encodedUser}&roomid=<%=Base64.getEncoder().encodeToString(String.valueOf(room.getID()).getBytes())%>">
-                        <img style="max-width: 100%;" src="img/anh2.jpg" alt=""></a>
+                        <img style="max-width: 100%;" src="getRoomImage?roomID=<%=room.getID()%>" alt="Room Image"></a>
                 </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-7">
                 <div class="card" style="border: 0;">
                     <b>
                         <a style="text-decoration: none; color:black;" href="/HouseManage/home/edit?username=${encodedUser}&roomid=<%=Base64.getEncoder().encodeToString(String.valueOf(room.getID()).getBytes())%>"><%= room.getHeading() %></a>
@@ -113,9 +113,14 @@
                 </div>
 
             </div>
+<%--            <div class="col-md-1">--%>
+<%--                <a href="/HouseManage/home/edit?username=${encodedUser}&roomid=<%=Base64.getEncoder().encodeToString(String.valueOf(room.getID()).getBytes())%>">--%>
+<%--                    <button type="submit" class="btn btn-primary" id="edit-button">Edit</button>--%>
+<%--                </a>--%>
+<%--            </div>--%>
             <div class="col-md-1">
                 <a href="/HouseManage/home/delete?username=${encodedUser}&roomid=<%=Base64.getEncoder().encodeToString(String.valueOf(room.getID()).getBytes())%>">
-                    <button type="submit" class="absolute right-0 w-8 h-8 p-1 bg-red-600 text-white flex items-center justify-center rounded" id="close-button">X</button>
+                    <button type="submit" class="btn btn-danger" id="close-button"> X </button>
                 </a>
             </div>
         </div>

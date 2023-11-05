@@ -1,12 +1,12 @@
 <%@ page import="com.example.housemanage.controller.InforRoomServlet" %>
 <%@ page import="com.example.housemanage.controller.DBConnection" %>
 <%@ page import="com.example.housemanage.model.Room" %>
-<%@ page import="com.example.housemanage.model.user" %>
+<%@ page import="com.example.housemanage.model.User" %>
 <%
     int roomid = Integer.parseInt(request.getParameter("roomid"));
     InforRoomServlet inforRoomServlet = new InforRoomServlet();
     Room room = inforRoomServlet.roomInfor(roomid);
-    user user = inforRoomServlet.userInfor(roomid);
+    User user = inforRoomServlet.userInfor(roomid);
 %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
