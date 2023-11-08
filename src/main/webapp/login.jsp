@@ -84,11 +84,11 @@
                 <label for="password" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>Password</b></label>
                 <input type="password" class="form-control" id="password" name = "password" required>
             </div>
-            <div class="mb-3 form-check" style="margin-left: 48%;">
-                <a style="color:brown; margin-left: 40%" href="forgotPassword.jsp">Forgot Password</a>
-            </div>
+<%--            <div class="mb-3 form-check" style="margin-left: 48%;">--%>
+<%--                <a style="color:brown; margin-left: 40%" href="forgotPassword.jsp">Forgot Password</a>--%>
+<%--            </div>--%>
             <div style="display: flex; justify-content:center; align-items:center">
-                <input style="margin-right: 30px; width: 100px" type="submit" class="btn btn-secondary" value="Log In">
+                <input style="margin-right: 30px; width: 100px" type="submit" class="btn btn-secondary" value="Login">
                 <button onclick="redirectCreateAccount()" type="button" class="btn btn-success" style="width: 100px;">Sign Up</button>
             </div>
         </form>

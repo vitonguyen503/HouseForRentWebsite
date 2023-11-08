@@ -82,84 +82,6 @@
             margin-left: 30%;
             margin-right: 30%;;
         }
-
-        /* Hide the images by default */
-        .mySlides {
-            display: none;
-        }
-
-        /* Add a pointer when hovering over the thumbnail images */
-        .cursor {
-            cursor: pointer;
-        }
-
-        /* Next & previous buttons */
-        .prev,
-        .next {
-            cursor: pointer;
-            position: absolute;
-            top: 40%;
-            width: auto;
-            padding: 16px;
-            margin-top: -50px;
-            color: white;
-            font-weight: bold;
-            font-size: 20px;
-            border-radius: 0 3px 3px 0;
-            user-select: none;
-            -webkit-user-select: none;
-        }
-
-        /* Position the "next button" to the right */
-        .next {
-            right: 0;
-            border-radius: 3px 0 0 3px;
-        }
-
-        /* On hover, add a black background color with a little bit see-through */
-        .prev:hover,
-        .next:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        /* Number text (1/3 etc) */
-        .numbertext {
-            color: #f2f2f2;
-            font-size: 12px;
-            padding: 8px 12px;
-            position: absolute;
-            top: 0;
-        }
-
-        /* Container for image text */
-        .caption-container {
-            text-align: center;
-            background-color: #222;
-            padding: 2px 16px;
-            color: white;
-        }
-
-        .row:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-
-        /* Six columns side by side */
-        .column {
-            float: left;
-            width: 16.66%;
-        }
-
-        /* Add a transparency effect for thumnbail images */
-        .demo {
-            opacity: 0.6;
-        }
-
-        .active,
-        .demo:hover {
-            opacity: 1;
-        }
     </style>
 </head>
 <body>
@@ -186,7 +108,7 @@
                     <div class="hidden sm:ml-6 sm:block" >
                         <div class="flex space-x-4" style="margin-top: 8px;">
                             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                            <a href="index.jsp" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a>
+                            <a href="http://localhost:8080/HouseManage" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a>
                             <a href="aboutWebsite.jsp" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About</a>
                         </div>
                     </div>
@@ -199,7 +121,7 @@
 
     <form class="bg-white shadow" style="position: fixed; width:100%; top:60px; z-index: 1;" method="post" action="roomSearch.jsp">
         <select name="local" style="width: 15%;" id="local" class="block w-full px-4 py-2 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            <option selected>Local</option>
+            <option selected>Address</option>
             <option value="NewYork">NewYork</option>
             <option value="Los Angeles">Los Angeles</option>
             <option value="Chicago">Chicago</option>
@@ -208,7 +130,7 @@
             <option value="Austin">Austin</option>
             <option value="Boston">Boston</option>
             <option value="Seattle">Seattle</option>
-            <option value="New Orlean">New Orlean</option>
+            <option value="New Ocean">New Ocean</option>
             <option value="Denver">Denver</option>
         </select>
 
@@ -223,126 +145,52 @@
         </select>
 
         <select name="price" style="width: 15%;" id="price" class="block w-full px-4 py-2 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            <option selected>Prices($)</option>
+            <option selected>Price</option>
             <option>100-250</option>
             <option>250-500</option>
             <option>500-700</option>
             <option>700-900</option>
             <option>900-1200</option>
-            <option> >1200 </option>
+            <option>>1200</option>
         </select>
 
-        <input name="inputsearch" class="inputsearch" type="search" style="width: 20%;" placeholder="Search">
+        <input name="inputsearch" class="inputsearch border border-gray-300 rounded-lg bg-gray-50" type="search" style="width: 20%; ">
         <button style="display: inline-block; margin-left:3%; margin-top:-5px" type="submit" class="btn btn-secondary">Search</button>
     </form>
 
     <!-- description -->
     <div style="margin-top:150px;">
         <div class="px-4 sm:px-0">
-            <p class="text-base font-semibold leading-7 text-gray-900" style="font-size: 20px; text-align:center">Information room for rent</p>
+            <p class="text-base font-semibold leading-7 text-gray-900" style="font-size: 20px; text-align:center">Detailed Information</p>
         </div>
 
         <!-- Slide img -->
         <div class="container2">
-
-            <!-- Full-width images with number text -->
-            <div class="mySlides">
-                <div class="numbertext">1 / 3</div>
-                <img src="./img/anh2.jpg" style="width:100%">
-            </div>
-
-            <div class="mySlides">
-                <div class="numbertext">2 / 3</div>
-                <img src="./img/anh3.jpg" style="width:100%">
-            </div>
-
-            <div class="mySlides">
-                <div class="numbertext">3 / 3</div>
-                <img src="./img/anh6.jpg" style="width:100%">
-            </div>
-
-            <!-- Next and previous buttons -->
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-            <!-- Image text -->
-            <div class="caption-container">
-                <p id="caption"></p>
-            </div>
-
-            <!-- Thumbnail images -->
-            <div class="row" style="margin-left: 0; margin-right:0;">
-                <div class="column">
-                    <img class="demo cursor" src="./img/anh2.jpg" style="width:100%" onclick="currentSlide(1)" alt="">
-                </div>
-                <div class="column">
-                    <img class="demo cursor" src="./img/anh3.jpg" style="width:100%" onclick="currentSlide(2)" alt="">
-                </div>
-                <div class="column">
-                    <img class="demo cursor" src="./img/anh6.jpg" style="width:100%" onclick="currentSlide(3)" alt="">
-                </div>
-            </div>
+            <img src="getRoomImage?roomID=<%=roomid%>" style="width:100%">
         </div>
-
-        <script>
-            let slideIndex = 1;
-            showSlides(slideIndex);
-
-            // Next/previous controls
-            function plusSlides(n) {
-                showSlides(slideIndex += n);
-            }
-
-            // Thumbnail image controls
-            function currentSlide(n) {
-                showSlides(slideIndex = n);
-            }
-
-            function showSlides(n) {
-                let i;
-                let slides = document.getElementsByClassName("mySlides");
-                let dots = document.getElementsByClassName("demo");
-                let captionText = document.getElementById("caption");
-                if (n > slides.length) {slideIndex = 1}
-                if (n < 1) {slideIndex = slides.length}
-                for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
-                }
-                for (i = 0; i < dots.length; i++) {
-                    dots[i].className = dots[i].className.replace(" active", "");
-                }
-                slides[slideIndex-1].style.display = "block";
-                dots[slideIndex-1].className += " active";
-                captionText.innerHTML = dots[slideIndex-1].alt;
-            }
-        </script>
 
         <div class="container" style="position: relative;">
             <img src="./img/anhnguoi.webp" alt="" style="position: absolute; width:275px">
             <div class="mt-6 border-t border-gray-100" style="margin-left: 17%; width: 100%; background-color:aliceblue; border-radius: 25px; display:inline-block">
                 <dl class="divide-y divide-gray-100">
                     <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                        <dt class="text-sm font-medium leading-6 text-gray-900">Heading</dt>
-                        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%=room.getHeading()%></dd>
-                    </div>
-                    <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                         <dt class="text-sm font-medium leading-6 text-gray-900">Address</dt>
                         <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%=room.getAddress()%></dd>
                     </div>
                     <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                         <dt class="text-sm font-medium leading-6 text-gray-900">Area</dt>
-                        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%=room.getArea()%></dd>
+                        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%=room.getArea()%> m2</dd>
                     </div>
                     <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                        <dt class="text-sm font-medium leading-6 text-gray-900">Prices/month</dt>
-                        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%=room.getPrice()%></dd>
+                        <dt class="text-sm font-medium leading-6 text-gray-900">Price</dt>
+                        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%=room.getPrice()%>$/month</dd>
                     </div>
                     <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                         <dt class="text-sm font-medium leading-6 text-gray-900">Description</dt>
                         <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%=room.getDescription()%></dd>
                     </div>
                     <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                        <dt class="text-sm font-medium leading-6 text-gray-900">User Profile Information</dt>
+                        <dt class="text-sm font-medium leading-6 text-gray-900">Owner's Information</dt>
                         <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
                             <ul>
                                 <li><dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%=user.getUsername()%></dd></li>
@@ -351,36 +199,22 @@
                             </ul>
                         </dd>
                     </div>
-                    <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                        <dt class="text-sm font-medium leading-6 text-gray-900">Number Contact</dt>
-                        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%=user.getNumber()%></dd>
-                    </div>
                 </dl>
 
 
                 <div style="display: flex; justify-content:center; margin-bottom:15px;">
-                    <button id="showFormLink" type="button" class="btn btn-warning">Contact</button>
+                    <button id="showFormLink" type="button" class="btn btn-warning">Leave a note</button>
                 </div>
                 <div class="overlay" id="overlay"></div>
                 <div class="form-container" id="formContainer">
                     <form style="background-color: rgb(243, 239, 248); padding:20px; max-height:75vh; width:100%; overflow-y: auto;" method="post" action="${pageContext.request.contextPath}/inforHome?roomid=<%=roomid%>">
                         <div class="space-y-12">
                             <div class="border-b border-gray-900/10 pb-12">
-                                <h2 class="text-base font-semibold leading-7 text-gray-900">Note</h2>
-                                <p class="mt-1 text-sm leading-6 text-gray-600">This information will be sended to the poster.</p>
+                                <h2 class="text-base font-semibold leading-7 text-gray-900">Leave a note</h2>
 
                                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-<%--                                    <div class="sm:col-span-full">--%>
-<%--                                        <label for="roomID" class="block text-sm font-medium leading-6 text-gray-900">Room ID</label>--%>
-<%--                                        <div class="mt-2">--%>
-<%--                                            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">--%>
-<%--                                                <input required style="height: 30px; padding-left: 7px;" type="text" name="roomID" id="roomID" autocomplete="roomID" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6" value="<%=room.getID()%>">--%>
-<%--                                            </div>--%>
-<%--                                        </div>--%>
-<%--                                    </div>--%>
-
                                     <div class="sm:col-span-full">
-                                        <label for="sendername" class="block text-sm font-medium leading-6 text-gray-900">Sender Name</label>
+                                        <label for="sendername" class="block text-sm font-medium leading-6 text-gray-900">Your Name</label>
                                         <div class="mt-2">
                                             <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                                                 <input required style="height: 30px; padding-left: 7px;" type="text" name="sendername" id="sendername" autocomplete="sendername" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6">
@@ -389,7 +223,7 @@
                                     </div>
 
                                     <div class="sm:col-span-full">
-                                        <label for="sendernumber" class="block text-sm font-medium leading-6 text-gray-900">Sender Number</label>
+                                        <label for="sendernumber" class="block text-sm font-medium leading-6 text-gray-900">Your Number</label>
                                         <div class="mt-2">
                                             <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                                                 <input required style="height: 30px; padding-left: 7px;" type="number" name="sendernumber" id="sendernumber" autocomplete="sendernumber" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6">
@@ -398,11 +232,11 @@
                                     </div>
 
                                     <div class="col-span-full">
-                                        <label for="sendernote" class="block text-sm font-medium leading-6 text-gray-900">Sender Note</label>
+                                        <label for="sendernote" class="block text-sm font-medium leading-6 text-gray-900">Note</label>
                                         <div class="mt-2">
                                             <textarea style="padding-left: 7px;" id="sendernote" name="sendernote" rows="4" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
                                         </div>
-                                        <p class="mt-3 text-sm leading-6 text-gray-600">Write a few sentences for the poster.</p>
+                                        <p class="mt-3 text-sm leading-6 text-gray-600">Say something to the owner!</p>
                                     </div>
                                 </div>
                                 <button style="margin-top: 20px; margin-left:75%" type="submit" class="btn btn-secondary">Send</button>
@@ -428,9 +262,12 @@
         </div>
     </div>
     <script src="ButtonAvatar.js"></script>
+    <script type="text/javascript" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@2/es5/tex-chtml.js">
+    </script>
     <script>
         function redirectLogin() {
-            window.location.href = "login.jsp";
+            window.location.href = "/HouseManage/login";
         }
     </script>
 </body>
