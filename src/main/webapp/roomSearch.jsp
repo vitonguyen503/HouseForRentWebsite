@@ -91,6 +91,12 @@
             background-color: #1877f2;
             transform: scale(1.2);
         }
+        .truncate {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 500px;
+        }
     </style>
 </head>
 <body>
@@ -190,7 +196,7 @@
                         <p style="display: inline-block; margin-left: 4%;"><%= room.getArea()%>m2</p>
                         <p style="display: inline-block; margin-left: 4%;"><%= room.getAddress() %></p>
                     </div>
-                    <p style="color: rgb(122, 121, 120); font-size: 12px;"><%= room.getDescription() %></p>
+                    <p class="truncate" style="color: rgb(122, 121, 120); font-size: 12px;"><%= room.getDescription() %></p>
                     <img style="display: inline-block;" src="" alt=""> <p style="display: inline-block;">
                 </div>
             </div>

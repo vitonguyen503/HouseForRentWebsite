@@ -22,6 +22,12 @@
             width: 82%;
             margin-left: 10%;
         }
+        .truncate {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 500px;
+        }
     </style>
 </head>
 <body>
@@ -108,7 +114,7 @@
                         <p style="display: inline-block; margin-left: 4%;"><%= room.getArea() %>m2</p>
                         <p style="display: inline-block; margin-left: 4%;"><%= room.getAddress() %></p>
                     </div>
-                    <p style="color: rgb(122, 121, 120); font-size: 12px;"><%= room.getDescription() %></p>
+                    <p class="truncate" style="color: rgb(122, 121, 120); font-size: 12px;"><%= room.getDescription() %></p>
 
                 </div>
 
