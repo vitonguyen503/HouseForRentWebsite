@@ -1,5 +1,15 @@
 <%@ page import="java.util.Base64" %>
+<%@ page import="com.example.housemanage.controller.ChangeInfoServlet" %>
+<%@ page import="com.example.housemanage.model.reverse" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.example.housemanage.model.user" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String encodedUser = request.getParameter("username");
+    String username = new String(Base64.getDecoder().decode(encodedUser));
+    ChangeInfoServlet changeInfoServlet = new ChangeInfoServlet();
+    user user = changeInfoServlet.getUserData(username);
+%>
 <html>
 <head>
     <title>Your Profile</title>
@@ -52,31 +62,31 @@
                     <div class="col-span-full">
                         <label style="color: #000; font-size:15px;" for="password" title="If you don't want to change password, just ignore this" class="block text-sm font-medium leading-6 text-gray-900">New password</label>
                         <div class="mt-2">
-                            <input required type="password" name="password" id="password"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="password" name="password" id="password"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
                     <div class="col-span-full">
                         <label style="color: #000; font-size:15px;" for="confirm" title="If you don't want to change password, just ignore this" class="block text-sm font-medium leading-6 text-gray-900">Confirm new password</label>
                         <div class="mt-2">
-                            <input required type="password" name="confirm" id="confirm" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="password" name="confirm" id="confirm" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
                     <div class="col-span-full">
                         <label style="color: #000; font-size:15px;" for="email" class="block text-sm font-medium leading-6 text-gray-900">Email</label>
                         <div class="mt-2">
-                            <input required type="email" name="email" id="email" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input required value="<%=user.getEmail()%>" type="email" name="email" id="email" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
                     <div class="col-span-full">
                         <label style="color: #000; font-size:15px;" for="number" class="block text-sm font-medium leading-6 text-gray-900">Number</label>
                         <div class="mt-2">
-                            <input required type="text" name="number" id="number" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input required value="<%=user.getNumber()%>" type="text" name="number" id="number" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
 
                     <div class="col-span-full">
                         <label style="color: #000; font-size:15px;" class="block text-sm font-medium leading-6 text-gray-900">Avatar</label>
-                        <input type="file" name="file" id="file"><br>
+                        <input value="<%=user.getAvatar()%>" type="file" name="file" id="file"><br>
                     </div>
                 </div>
             </div>

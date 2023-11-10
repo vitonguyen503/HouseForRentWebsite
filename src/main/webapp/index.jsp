@@ -295,36 +295,38 @@
     <!-- <label for="large" class="block mb-2 text-base font-medium text-gray-900 dark:text-white">Large select</label> -->
     <select name="local" style="width: 15%;" id="local" class="block w-full px-4 py-2 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
         <option selected>Address</option>
-        <option value="NewYork">New York</option>
-        <option value="Los Angeles">Los Angeles</option>
-        <option value="Chicago">Chicago</option>
-        <option value="San Francisco">San Francisco</option>
-        <option value="Miami">Miami</option>
-        <option value="Austin">Austin</option>
-        <option value="Boston">Boston</option>
-        <option value="Seattle">Seattle</option>
-        <option value="New Orlean">New Orlean</option>
-        <option value="Denver">Denver</option>
+        <option>Hà Đông</option>
+        <option>Thanh Xuân</option>
+        <option>Ba Đình</option>
+        <option>Hoàn Kiếm</option>
+        <option>Tây Hồ</option>
+        <option>Long Biên</option>
+        <option>Cầu Giấy</option>
+        <option>Đống Đa</option>
+        <option>Hai Bà Trưng</option>
+        <option>Hoàng Mai</option>
     </select>
 
     <select name="area" style="width: 15%;" id="area" class="block w-full px-4 py-2 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
         <option selected>Area</option>
-        <option>10-70</option>
-        <option>70-200</option>
-        <option>200-300</option>
-        <option>400-600</option>
-        <option>800-1000</option>
-        <option>>1000</option>
+        <option>5-10</option>
+        <option>10-15</option>
+        <option>15-20</option>
+        <option>20-25</option>
+        <option>25-30</option>
+        <option>30-35</option>
+        <option>>35</option>
     </select>
 
     <select name="price" style="width: 15%;" id="price" class="block w-full px-4 py-2 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
         <option selected>Price</option>
-        <option>100-250</option>
-        <option>250-500</option>
-        <option>500-700</option>
-        <option>700-900</option>
-        <option>900-1200</option>
-        <option> >1200 </option>
+        <option>1-1.5</option>
+        <option>1.5-2</option>
+        <option>2-2.5</option>
+        <option>2.5-3</option>
+        <option>3-3.5</option>
+        <option>3.5-4</option>
+        <option> >4 </option>
     </select>
 
     <input name="inputsearch" class="inputsearch" type="search" style="width: 20%;" placeholder="Search">
@@ -350,8 +352,8 @@
                                     <div class="card" style="border: 0;">
                                         <b><a style="text-decoration: none; color:black;" href="inforHome.jsp?roomid=<%=room.getID()%>"><%= room.getHeading() %></a></b>
                                         <div>
-                                            <p style="color: brown; display:inline-block;"><b><%=room.getPrice()%>$/month</b></p>
-                                            <p style="display: inline-block; margin-left: 4%;"><%=room.getArea()%></p>
+                                            <p style="color: brown; display:inline-block;"><b><%=room.getPrice()%>tr/tháng</b></p>
+                                            <p style="display: inline-block; margin-left: 4%;"><%=room.getArea()%>m2</p>
                                             <p style="display: inline-block; margin-left: 4%;"><%= room.getAddress() %></p>
                                         </div>
                                         <p style="color: rgb(122, 121, 120); font-size: 12px;"><%= room.getDescription() %></p>
@@ -518,7 +520,7 @@
     <div class="mx-auto max-w-7xl px-6 lg:px-8" style="margin-top: -5px; background-color:#fff; z-index:0; border:1px solid #c6c3c3; border-radius:20px;">
         <div style="text-align: center;">
             <p style="color: #f43d3d; font-size:25px; margin-top:-40px"><b>Thông tin liên hệ</b></p>
-            <a style="margin-right: 18px;" href="https://www.facebook.com" target="_blank" class="facebook-icon"></a> <a style="margin-right: 18px;" href="https://www.facebook.com" target="_blank" class="insta-icon"></a> <a href="https://www.facebook.com" target="_blank" class="zalo-icon"></a>
+            <a style="margin-right: 18px;" href="https://www.facebook.com" target="_blank" class="facebook-icon"></a> <a style="margin-right: 18px;" href="https://www.instagram.com/" target="_blank" class="insta-icon"></a> <a href="https://zaloweb.me/" target="_blank" class="zalo-icon"></a>
             <p style="color: rgb(153, 153, 153);">Địa chỉ: Yên Nghĩa, Hà Đông, Hà Nội</p>
         </div>
     </div>

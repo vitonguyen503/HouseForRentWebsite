@@ -47,7 +47,7 @@ public class SearchServlet {
                 }
             }
 
-            if(!price.equals("Prices($)")){
+            if(!price.equals("Price")){
                 if(price.contains("-")){
                     String[] rangeParts = price.split("-");
                     if (rangeParts.length == 2) {
@@ -66,7 +66,7 @@ public class SearchServlet {
                 }
             }
 
-            if (!local.equals("Local")) {
+            if (!local.equals("Address")) {
                 sql += " and city like '" + local + "'";
             }
             if(inputsearch != null && !inputsearch.isEmpty()){

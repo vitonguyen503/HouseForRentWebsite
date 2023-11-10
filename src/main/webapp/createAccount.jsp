@@ -80,7 +80,7 @@
 <div class="container">
 
     <form class="form" method="post" enctype="multipart/form-data" action="${pageContext.request.contextPath}/createaccount">
-        <div class="back-button" onclick="redirectLogin()">&#8592;</div>
+<%--        <div class="back-button" onclick="redirectLogin()">&#8592;</div>--%>
         <h3 style="color: brown; text-align: center">Create Account</h3>
         <div class="error-message" style="color: brown; text-align: center;">${error}</div>
         <div style="color: brown; text-align: center;" class="success-message">${message}</div>

@@ -1,12 +1,12 @@
 <%@ page import="com.example.housemanage.controller.InforRoomServlet" %>
 <%@ page import="com.example.housemanage.controller.DBConnection" %>
 <%@ page import="com.example.housemanage.model.Room" %>
-<%@ page import="com.example.housemanage.model.User" %>
+<%@ page import="com.example.housemanage.model.user" %>
 <%
     int roomid = Integer.parseInt(request.getParameter("roomid"));
     InforRoomServlet inforRoomServlet = new InforRoomServlet();
     Room room = inforRoomServlet.roomInfor(roomid);
-    User user = inforRoomServlet.userInfor(roomid);
+    user user = inforRoomServlet.userInfor(roomid);
 %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -122,36 +122,38 @@
     <form class="bg-white shadow" style="position: fixed; width:100%; top:60px; z-index: 1;" method="post" action="roomSearch.jsp">
         <select name="local" style="width: 15%;" id="local" class="block w-full px-4 py-2 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
             <option selected>Address</option>
-            <option value="NewYork">NewYork</option>
-            <option value="Los Angeles">Los Angeles</option>
-            <option value="Chicago">Chicago</option>
-            <option value="San Francisco">San Francisco</option>
-            <option value="Miami">Miami</option>
-            <option value="Austin">Austin</option>
-            <option value="Boston">Boston</option>
-            <option value="Seattle">Seattle</option>
-            <option value="New Ocean">New Ocean</option>
-            <option value="Denver">Denver</option>
+            <option>Hà Đông</option>
+            <option>Thanh Xuân</option>
+            <option>Ba Đình</option>
+            <option>Hoàn Kiếm</option>
+            <option>Tây Hồ</option>
+            <option>Long Biên</option>
+            <option>Cầu Giấy</option>
+            <option>Đống Đa</option>
+            <option>Hai Bà Trưng</option>
+            <option>Hoàng Mai</option>
         </select>
 
         <select name="area" style="width: 15%;" id="area" class="block w-full px-4 py-2 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
             <option selected>Area</option>
-            <option>10-70</option>
-            <option>70-200</option>
-            <option>200-300</option>
-            <option>400-600</option>
-            <option>800-1000</option>
-            <option>>1000</option>
+            <option>5-10</option>
+            <option>10-15</option>
+            <option>15-20</option>
+            <option>20-25</option>
+            <option>25-30</option>
+            <option>30-35</option>
+            <option>>35</option>
         </select>
 
         <select name="price" style="width: 15%;" id="price" class="block w-full px-4 py-2 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
             <option selected>Price</option>
-            <option>100-250</option>
-            <option>250-500</option>
-            <option>500-700</option>
-            <option>700-900</option>
-            <option>900-1200</option>
-            <option>>1200</option>
+            <option>1-1.5</option>
+            <option>1.5-2</option>
+            <option>2-2.5</option>
+            <option>2.5-3</option>
+            <option>3-3.5</option>
+            <option>3.5-4</option>
+            <option> >4 </option>
         </select>
 
         <input name="inputsearch" class="inputsearch border border-gray-300 rounded-lg bg-gray-50" type="search" style="width: 20%; ">
@@ -164,7 +166,7 @@
             <p class="text-base font-semibold leading-7 text-gray-900" style="font-size: 20px; text-align:center">Detailed Information</p>
         </div>
 
-        <!-- Slide img -->
+        <!-- img -->
         <div class="container2">
             <img src="getRoomImage?roomID=<%=roomid%>" style="width:100%">
         </div>
@@ -178,12 +180,16 @@
                         <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%=room.getAddress()%></dd>
                     </div>
                     <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                        <dt class="text-sm font-medium leading-6 text-gray-900">District</dt>
+                        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%=room.getCity()%></dd>
+                    </div>
+                    <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                         <dt class="text-sm font-medium leading-6 text-gray-900">Area</dt>
                         <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%=room.getArea()%> m2</dd>
                     </div>
                     <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                         <dt class="text-sm font-medium leading-6 text-gray-900">Price</dt>
-                        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%=room.getPrice()%>$/month</dd>
+                        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%=room.getPrice()%>tr/tháng</dd>
                     </div>
                     <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                         <dt class="text-sm font-medium leading-6 text-gray-900">Description</dt>

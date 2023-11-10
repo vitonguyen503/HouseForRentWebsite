@@ -17,8 +17,8 @@ import java.util.Objects;
 @WebServlet(name = "createaccount", value = "/createaccount")
 public class CreateAccountServlet extends HttpServlet {
     Connection connection = DBConnection.getConnection();
-    PreparedStatement statement = null;
-    ResultSet resultSet = null;
+    PreparedStatement statement;
+    ResultSet resultSet;
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         String username = request.getParameter("username").trim();
         String password = request.getParameter("password").trim();
@@ -37,29 +37,39 @@ public class CreateAccountServlet extends HttpServlet {
         } else if(checkEmail(email)){
             request.setAttribute("error", "This email has already been registered");
             doGet(request, response);
-        } else if (!contentType.startsWith("image/")) {
+        }
+        else if (!contentType.startsWith("image/")) {
             request.setAttribute("error", "Wrong photo format");
             doGet(request, response);
-        } else {
-            String sql = "select * from user where username = '" + username + "'";
+        }
+        else {
+            String sql = "select ID, username, password, email, number, avatar from user where username = '" + username + "'";
             try {
                 statement = connection.prepareStatement(sql);
-                ResultSet resultSet = statement.executeQuery(sql);
+                resultSet = statement.executeQuery(sql);
                 if (resultSet.next()){
                     request.setAttribute("error", "Username has already existed!");
                     doGet(request, response);
                 } else {
-                    sql = "INSERT INTO user (username, password, email, number, avatar) VALUES (?, ?, ?, ?, ?)";
-                    PreparedStatement preparedStatement = connection.prepareStatement(sql);
-                    preparedStatement.setString(1, username);
-                    preparedStatement.setString(2, password);
-                    preparedStatement.setString(3, email);
-                    preparedStatement.setString(4, number);
-                    InputStream photoInputStream = photo.getInputStream();
-                    preparedStatement.setBinaryStream(5, photoInputStream);
-
-                    int rowsInserted = preparedStatement.executeUpdate();
-
+//                    if(photo.getSize() <= 0){
+//                        sql = "INSERT INTO user (username, password, email, number) VALUES (?, ?, ?, ?)";
+//                        statement = connection.prepareStatement(sql);
+//                        statement.setString(1, username);
+//                        statement.setString(2, password);
+//                        statement.setString(3, email);
+//                        statement.setString(4, number);
+//                    }
+//                    else{
+                        sql = "INSERT INTO user (username, password, email, number, avatar) VALUES (?, ?, ?, ?, ?)";
+                        statement = connection.prepareStatement(sql);
+                        statement.setString(1, username);
+                        statement.setString(2, password);
+                        statement.setString(3, email);
+                        statement.setString(4, number);
+                        InputStream photoInputStream = photo.getInputStream();
+                        statement.setBinaryStream(5, photoInputStream);
+//                    }
+                    int rowsInserted = statement.executeUpdate();
                     if (rowsInserted > 0) {
                         request.setAttribute("message", "Account created successfully!");
                         doGet(request, response);
@@ -70,7 +80,7 @@ public class CreateAccountServlet extends HttpServlet {
                 }
             } catch (SQLException ex){
                 request.setAttribute("error", "Can't connect to server!");
-                ex.printStackTrace();
+//                ex.printStackTrace();
                 doGet(request, response);
             }
         }
@@ -82,7 +92,7 @@ public class CreateAccountServlet extends HttpServlet {
 
     boolean checkEmail(String email){
         try{
-            String sql = "SELECT * FROM user WHERE email = ?";
+            String sql = "SELECT ID, username, password, email, number, avatar FROM user WHERE email = ?";
             statement = connection.prepareStatement(sql);
             statement.setString(1, email);
             resultSet = statement.executeQuery();

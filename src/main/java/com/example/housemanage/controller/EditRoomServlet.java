@@ -44,26 +44,41 @@ public class EditRoomServlet extends HttpServlet {
         Part photo = req.getPart("file");
 
         // Check if the file is an image (you can enhance this validation)
-        String contentType = photo.getContentType();
-        if (!contentType.startsWith("image/")) {
-            req.setAttribute("error", "Wrong photo format!");
-            doGet(req, resp);
-        } else if(Objects.equals(local, "")) {
+//        String contentType = photo.getContentType();
+//        if (!contentType.startsWith("image/")) {
+//            req.setAttribute("error", "Wrong photo format!");
+//            doGet(req, resp);
+//        } else
+            if(Objects.equals(local, "")) {
             req.setAttribute("error", "Missing city!");
             doGet(req, resp);
         }
         try {
-            String sql = "update room set heading = ?, price = ?,  area = ?, address = ?, description = ?, city = ?, image = ? where roomID = ?";
-            statement = connection.prepareStatement(sql);
-            statement.setString(1, title);
-            statement.setDouble(2, price);
-            statement.setDouble(3, area);
-            statement.setString(4, address);
-            statement.setString(5, description);
-            statement.setString(6, local);
-            InputStream photoInputStream = photo.getInputStream();
-            statement.setBinaryStream(7, photoInputStream);
-            statement.setInt(8, roomid);
+            String sql;
+            if(photo.getSize() <= 0){
+                sql = "update room set heading = ?, price = ?,  area = ?, address = ?, description = ?, city = ? where roomID = ?";
+                statement = connection.prepareStatement(sql);
+                statement.setString(1, title);
+                statement.setDouble(2, price);
+                statement.setDouble(3, area);
+                statement.setString(4, address);
+                statement.setString(5, description);
+                statement.setString(6, local);
+                statement.setInt(7, roomid);
+            }
+            else{
+                sql = "update room set heading = ?, price = ?,  area = ?, address = ?, description = ?, city = ?, image = ? where roomID = ?";
+                statement = connection.prepareStatement(sql);
+                statement.setString(1, title);
+                statement.setDouble(2, price);
+                statement.setDouble(3, area);
+                statement.setString(4, address);
+                statement.setString(5, description);
+                statement.setString(6, local);
+                InputStream photoInputStream = photo.getInputStream();
+                statement.setBinaryStream(7, photoInputStream);
+                statement.setInt(8, roomid);
+            }
             statement.executeUpdate();
             System.out.println("Edit successfully!");
             String receiverServletURL = "http://localhost:8080/HouseManage/home";
@@ -82,12 +97,22 @@ public class EditRoomServlet extends HttpServlet {
             doGet(req, resp);
         }
     }
+    public static int decodeInteger(String encodedString) {
+        // Giải mã chuỗi Base64 thành mảng byte
+        byte[] decodedBytes = Base64.getDecoder().decode(encodedString);
 
+        // Chuyển mảng byte thành chuỗi và sau đó chuyển đổi thành số nguyên
+        int decodedNumber = Integer.parseInt(new String(decodedBytes));
+
+        return decodedNumber;
+    }
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("roomid");
         String encodedUser = req.getParameter("username");
-        int roomID = Integer.parseInt(new String(Base64.getDecoder().decode(id)));
+        int roomID = decodeInteger(id);
+//        String x = new String(Base64.getDecoder().decode(id));
+//        int roomID = Integer.parseInt(x);
         System.out.println(roomID);
         if(check(roomID)){
             req.setAttribute("roomID", roomID);
@@ -100,7 +125,7 @@ public class EditRoomServlet extends HttpServlet {
 
     boolean check(int roomID){
         try{
-            String sql = "SELECT * FROM room WHERE roomID = ?";
+            String sql = "SELECT roomID, userID, heading, price, area, address, description, image, city FROM room WHERE roomID = ?";
             statement = connection.prepareStatement(sql);
             statement.setInt(1, roomID);
             resultSet = statement.executeQuery();
@@ -129,6 +154,7 @@ public class EditRoomServlet extends HttpServlet {
                 room.setArea(resultSet.getDouble(5));
                 room.setPrice(resultSet.getDouble(6));
                 room.setDescription(resultSet.getString(7));
+                room.setImage(resultSet.getBytes(8));
             }
         } catch (Exception ex){
             ex.printStackTrace();

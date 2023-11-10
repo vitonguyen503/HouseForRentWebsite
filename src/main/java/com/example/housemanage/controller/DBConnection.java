@@ -16,7 +16,7 @@ public class DBConnection {
                 // Tạo kết nối cơ sở dữ liệu ở đây
                 Class.forName("com.mysql.jdbc.Driver");
                 String url = "jdbc:mysql://localhost:3306/roomforrent";
-                connection = DriverManager.getConnection(url, "root", "lizismee");
+                connection = DriverManager.getConnection(url, "root", "jungkookdethuong22012003");
             } catch (ClassNotFoundException | SQLException e) {
                 e.printStackTrace();
             }

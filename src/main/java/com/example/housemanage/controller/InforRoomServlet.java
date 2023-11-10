@@ -1,7 +1,7 @@
 package com.example.housemanage.controller;
 
 import com.example.housemanage.model.Room;
-import com.example.housemanage.model.User;
+import com.example.housemanage.model.user;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -71,8 +71,8 @@ public class InforRoomServlet extends HttpServlet{
         return room;
     }
 
-    public User userInfor(int id){
-        User user = null;
+    public user userInfor(int id){
+        user user = null;
         Room room = null;
         try{
             String sql = "select * from room where roomID=?";
@@ -95,7 +95,7 @@ public class InforRoomServlet extends HttpServlet{
                 statement.setInt(1, i);
                 resultSet = statement.executeQuery();
                 while (resultSet.next()){
-                    user = new User();
+                    user = new user();
                     user.setUsername(resultSet.getString(3));
                     user.setNumber(resultSet.getString(2));
                     user.setEmail(resultSet.getString(1));

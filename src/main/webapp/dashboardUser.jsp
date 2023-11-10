@@ -54,7 +54,7 @@
 
             <button style="width: 10%; margin-top: 3px; margin-right:1%;" onclick=addButton() id="addButton" class="btn btn-secondary">Add new post</button>
             <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <div style="margin-right: 1%; width:100px; height:30px" class="relative bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                <div style="margin-right: 1%; width:150px; height:30px" class="relative bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                     <p style="color: #fff;">Hi, ${user}</p>
                 </div>
 
@@ -86,7 +86,7 @@
 <%--    <p style="color: #000; padding-bottom:10px;">${error}</p>--%>
 </div>
 
-<main style="margin-left: 7%; margin-right:29%;">
+<main style="margin-right: 10%; margin-left: 10%;">
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8" style="margin-top: 20px;">
         <!-- Your content -->
         <% List<Room> list_of_rooms = (List<Room>) request.getAttribute("list_of_room");%>
@@ -104,7 +104,7 @@
                         <a style="text-decoration: none; color:black;" href="/HouseManage/home/edit?username=${encodedUser}&roomid=<%=Base64.getEncoder().encodeToString(String.valueOf(room.getID()).getBytes())%>"><%= room.getHeading() %></a>
                     </b>
                     <div>
-                        <p style="color: brown; display:inline-block;"><b><%= room.getPrice() %>$/month</b></p>
+                        <p style="color: brown; display:inline-block;"><b><%= room.getPrice() %>tr/tháng</b></p>
                         <p style="display: inline-block; margin-left: 4%;"><%= room.getArea() %>m2</p>
                         <p style="display: inline-block; margin-left: 4%;"><%= room.getAddress() %></p>
                     </div>

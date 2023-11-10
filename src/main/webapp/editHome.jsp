@@ -74,6 +74,13 @@
         form{
             padding: 20px;
         }
+        .container2 {
+            position: relative;
+            width: 40%;
+            margin-left: 30%;
+            margin-right: 30%;
+            height: 180px;
+        }
     </style>
 </head>
 <body>
@@ -102,6 +109,9 @@
         <div class="space-y-12">
             <div class="border-b border-gray-900/10 pb-12">
                 <b><p style="color: #000; font-size:30px; text-align:center; padding-top: 20px; padding-bottom:10px;" class="text-base font-semibold leading-7 text-gray-900">Edit your post</p></b>
+<%--                <div class="container2">--%>
+<%--                    <img src="getRoomImage?roomID=<%=room.getID()%>" style="width:100%" alt="Room Image">--%>
+<%--                </div>--%>
 
                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div class="col-span-full">
@@ -135,7 +145,7 @@
                     <div class="sm:col-span-2">
                         <label style="color: #000; font-size:15px;" for="price" class="block text-sm font-medium leading-6 text-gray-900">Price</label>
                         <div class="mt-2">
-                            <input value="<%=room.getPrice()%>" type="number" name="price" id="price" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input value="<%=room.getPrice()%>" type="text" pattern="\d+(\.\d{1,2})?" name="price" id="price" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
 

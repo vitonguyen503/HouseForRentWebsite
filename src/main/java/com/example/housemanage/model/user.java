@@ -1,14 +1,14 @@
 package com.example.housemanage.model;
 
-public class User {
+public class user {
     int ID;
     String username, password, name, email, number, address;
     byte[] avatar;
 
-    public User() {
+    public user() {
     }
 
-    public User(String password, String email, String number, String address, byte[] avatar){
+    public user(String password, String email, String number, String address, byte[] avatar){
         this.password = password;
         this.email = email;
         this.number = number;
@@ -16,7 +16,7 @@ public class User {
         this.avatar = avatar;
     }
 
-    public User(int ID, String username, String password, String name, String email, String number, byte[] avatar, String address) {
+    public user(int ID, String username, String password, String name, String email, String number, byte[] avatar, String address) {
         this.ID = ID;
         this.username = username;
         this.password = password;

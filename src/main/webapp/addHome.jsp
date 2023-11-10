@@ -95,16 +95,16 @@
                             <div class="mt-2">
                                 <select id="city" name="city" autocomplete="city" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
                                     <option selected></option>
-                                    <option value="New York">NewYork</option>
-                                    <option value="Los Angeles">Los Angeles</option>
-                                    <option value="Chicago">Chicago</option>
-                                    <option value="San Francisco">San Francisco</option>
-                                    <option value="Miami">Miami</option>
-                                    <option value="Austin">Austin</option>
-                                    <option value="Boston">Boston</option>
-                                    <option value="Seattle">Seattle</option>
-                                    <option value="New Orleans">New Orleans</option>
-                                    <option value="Denver">Denver</option>
+                                    <option>Hà Đông</option>
+                                    <option>Thanh Xuân</option>
+                                    <option>Ba Đình</option>
+                                    <option>Hoàn Kiếm</option>
+                                    <option>Tây Hồ</option>
+                                    <option>Long Biên</option>
+                                    <option>Cầu Giấy</option>
+                                    <option>Đống Đa</option>
+                                    <option>Hai Bà Trưng</option>
+                                    <option>Hoàng Mai</option>
                                 </select>
                             </div>
                         </div>
@@ -119,7 +119,7 @@
                         <div class="sm:col-span-2">
                             <label style="color: #000; font-size:15px;" for="price" class="block text-sm font-medium leading-6 text-gray-900">Price</label>
                             <div class="mt-2">
-                                <input required type="number" name="price" id="price" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                <input required type="text" name="price" id="price" pattern="\d+(\.\d{1,2})?" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                             </div>
                         </div>
 
